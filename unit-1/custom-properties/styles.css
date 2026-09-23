@@ -6,12 +6,35 @@
    ======================================== */
 :root {
     /* Colors: at least primary, background, text, accent */
+    --color-primary: #5C8F57;
+    --color-secondary: #EA7671;
+    --color-background: #FFFFFF;
+    --color-text: #000000;
+    --color-accent: #DCC573;
+    --color-link: #FFFFFF;
+    --color-link-hover: color-mix(in srgb, var(--color-secondary) 50%, white 50%);
+
+    --box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
 
     /* Spacing: at least sm, md, lg */
+    --spacing-xs: 0.2rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+
+    --spacing-font-xs: 6px;
+    --spacing-font-sm: 10px;
+    --spacing-font-md: 14px;
+    --spacing-font-lg: 18px;
+    --spacing-font-xl: 25px;
 
     /* Typography: font family, base size */
+    --font-heading: "aquavit", sans-serif;
+    --font-text: 'Times New Roman', serif;
 
     /* Borders: radius */
+    --border-radius: 1rem;
 }
 
 /* ========================================
@@ -35,11 +58,18 @@ body {
     /* font family, color, background, line-height, padding */
     /* Use clamp() for padding to make it fluid. */
 
+    background: var(--color-background);
+    font-family: var(--font-text);
+    line-height: 1.4;
+    padding: clamp(var(--spacing-sm), 2vw, var(--spacing-xl));
+
     a {
         /* link color from tokens */
+        color: var(--color-link);
 
         &:hover {
             /* hover color from tokens */
+            color: var(--color-link-hover);
         }
     }
 }
@@ -51,6 +81,14 @@ body {
    ======================================== */
 .site-nav {
     /* padding, margin-bottom */
+    padding: clamp(var(--spacing-sm), 2vw, var(--spacing-md));
+    background-color: var(--color-primary);
+    margin-bottom: clamp(var(--spacing-md), 2vw, var(--spacing-lg));
+
+    a {
+        color: var(--color-background);
+        text-decoration: none;
+    }
 }
 
 /* ========================================
@@ -61,12 +99,22 @@ body {
     /* text alignment, margin, padding */
     /* Use clamp() for the h1 font size. */
 
+    padding: clamp(var(--spacing-sm), 2vw, var(--spacing-md));
+    margin: clamp(var(--spacing-sm), 2vw, var(--spacing-md));
+
     h1 {
         /* fluid font size */
+        text-align: center;
+        font-family: var(--font-heading);
+        font-size: clamp(var(--spacing-font-lg), 2vw, var(--spacing-font-xl));
+        color: var(--color-primary);
     }
 
     p {
         /* muted text color, spacing */
+        text-align: center;
+        color: var(--color-text);
+        font-size: clamp(var(--spacing-font-md), 2vw, var(--spacing-font-lg));
     }
 }
 
@@ -77,9 +125,14 @@ body {
    ======================================== */
 .card-group {
     /* margin-bottom using a token */
+    margin-bottom: clamp(var(--spacing-md), 3vw, var(--spacing-lg));
 
     h2 {
         /* section heading styles */
+        color: var(--color-primary);
+        font-family: var(--font-heading);
+        font-size: clamp(var(--spacing-font-md), 2vw, var(--spacing-font-lg));
+        border-bottom: 2px solid var(--color-secondary);
     }
 }
 
@@ -90,6 +143,20 @@ body {
    ======================================== */
 .cards {
     /* display, gap (use calc to derive from a token), columns */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(var(--spacing-sm), 3vw, calc(var(--spacing-md) + 2rem));
+    padding: clamp(var(--spacing-md), 2vw, var(--spacing-lg));
+
+    /* Nested media query */
+    @media (width >=580px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    @media (width >=768px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 /* ========================================
@@ -100,22 +167,58 @@ body {
 .card {
     /* background, padding, border-radius, shadow */
     /* Use a var() with a fallback value here. */
+    background-color: var(--color-accent, #DCC573);
+    padding: clamp(var(--spacing-sm), 2vw, var(--spacing-md));
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 
     .card-tag {
         /* small label: font-size, padding, background, border-radius */
+        font-size: clamp(var(--spacing-font-sm), 2vw, var(--spacing-font-md));
+        padding: var(--spacing-xs);
+        padding-left: var(--spacing-sm);
+        background-color: var(--color-background, white);
+        border-top: 2px solid var(--color-secondary, #EA7671);
+        border-radius: var(--border-radius);
+        margin-bottom: clamp(var(--spacing-xs), 1vw, var(--spacing-sm));
+        color: var(--color-secondary, #EA7671);
     }
 
     h3 {
         /* card title styles */
+        font-family: var(--font-heading);
+        font-size: clamp(var(--spacing-font-md), 2vw, var(--spacing-font-lg));
     }
 
     p {
         /* card body text */
+        font-size: clamp(var(--spacing-font-md));
+        /*font-size: clamp(var(--spacing-font-md), 2vw, var(--spacing-font-lg)); */
     }
 
     .card-meta {
         /* bottom row: flexbox with space-between */
+        display: flex;
+        justify-content: space-between;
+        padding-top: var(--spacing-md);
+
         /* style the span and link inside here with nesting */
+        a {
+            color: var(--color-background);
+            background-color: var(--color-primary);
+            border-radius: clamp(calc(var(--border-radius)/2), 2vw, var(--border-radius));
+            padding: clamp(var(--spacing-xs), 1vw, var(--spacing-sm));
+            font-size: clamp(var(--spacing-font-sm), 1vw, var(--spacing-font-md));
+            text-decoration: none;
+
+            &:hover {
+                color: var(--color-link-hover);
+            }
+        }
+
+        span {
+            align-content: center;
+        }
     }
 }
 
@@ -125,4 +228,8 @@ body {
    ======================================== */
 .board-footer {
     /* text alignment, padding, muted color, top border */
+    text-align: center;
+    padding: clamp(var(--spacing-md), 2vw, var(--spacing-lg));
+    color: color-mix(in srgb, var(--color-primary) 50%, black 50%);
+    border-top: 2px solid var(--color-primary);
 }
