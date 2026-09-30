@@ -24,6 +24,7 @@ p {
    color: var(--color-text);
    font-family: var(--font-body);
    padding-block: clamp(var(--spacing-xs), 2vw, var(--spacing-sm));
+   font-size: clamp(var(--font-size-sm), 2vw, var(--font-size-md));
 }
 
 a {
