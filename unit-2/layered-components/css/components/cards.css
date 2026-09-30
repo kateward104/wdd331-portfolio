@@ -19,6 +19,6 @@
 
    .card-tag {
       font-family: var(--font-body);
-      font-weight: italic;
+      font-style: italic;
    }
 }

@@ -12,6 +12,11 @@
     --spacing-lg: 2rem;
     --spacing-xl: 4rem;
 
+    --font-size-sm: 12px;
+    --font-size-md: 16px;
+    --font-size-lg: 20px;
+    --font-size-xl: 24px;
+
     --border-radius: 1rem;
 
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
