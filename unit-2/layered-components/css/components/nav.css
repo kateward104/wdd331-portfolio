@@ -1,0 +1,19 @@
+/* Navigation component: .site-nav and its links
+   Style the active link using aria-current. */
+
+/* TODO: Style the navigation */
+
+
+nav {
+   background-color: var(--color-primary);
+   display: flex;
+   flex-direction: column;
+
+   @media (width >=768px) {
+      flex-direction: row;
+   }
+
+   a {
+      color: var(--color-background);
+   }
+}

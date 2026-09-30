@@ -1,0 +1,28 @@
+/* Button components: .btn, .primary, .secondary, disabled state
+   Use native nesting for pseudo-classes and modifiers. */
+
+/* TODO: Style the button components */
+
+
+.btn {
+   margin: var(--spacing-md);
+   color: var(--color-button-text);
+   padding: var(--spacing-sm);
+   border-radius: var(--border-radius);
+}
+
+.primary {
+   background-color: var(--color-button-primary);
+   color: var(--color-button-text);
+   /*color: var(--color-button-text);
+   padding: var(--spacing-sm);
+   border-radius: var(--border-radius);*/
+}
+
+.secondary {
+   color: var(--color-accent);
+   outline: 2px solid var(--color-button-secondary);
+   /*color: var(--color-button-text);
+   padding: var(--spacing-sm);
+   border-radius: var(--border-radius);*/
+}
