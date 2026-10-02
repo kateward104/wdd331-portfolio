@@ -1,0 +1,56 @@
+.card {
+    padding: 2rem;
+}
+
+.card-footer-one,
+.card-footer-two,
+.card-footer-three {
+    padding-top: 2rem;
+}
+
+.overall {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr)
+}
+
+dialog::backdrop {
+    background: rgba(1, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+}
+
+/*
+.card ul li::marker {
+    content: "✨ ";
+}
+
+.card-footer-one ol li::marker {
+    color: crimson;
+    font-weight: bold;
+}*/
+
+/*
+.card-footer-one {
+
+    ul li,
+    ol li {
+        list-style: none;
+    }
+
+    li::before {
+        content: "★";
+        background: cyan;
+        padding: 0.25rem;
+        border-radius: 50%;
+    }
+}*/
+
+
+.card-footer-three ::selection {
+    background-color: rgb(137, 0, 82);
+    color: white;
+}
+
+.card-footer-four ::selection {
+    background-color: gray;
+    color: rgb(137, 0, 82);
+}

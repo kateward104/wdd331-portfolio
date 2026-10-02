@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marker, Backdrop, and Selectors</title>
+    <link rel="stylesheet" href="../layered-components/css/main.css">
+    <link rel="stylesheet" href="demonstration.css">
+</head>
+
+<body>
+    <header class="page-header">
+        <h1>Marker, Backdrop, and Selectors</h1>
+        <p>Learn about CSS markers, backdrops, and selectors.</p>
+    </header>
+
+    <main>
+        <section class="card-group">
+            <h2>Study Topics</h2>
+            <p>Pseudo-elements let CSS target special pieces of the browser's UI or an element that aren't normal HTML
+                elements.</p>
+            <div class="cards">
+                <article class="card">
+                    <div class="card-tag">pseudo-element</div>
+                    <h3>::marker</h3>
+                    <p>::marker is the marker box of a list item that represents its bullet/number.
+                        <br><br>You can change:
+                    </p>
+                    <ul>
+                        <li>color</li>
+                        <li>white-space</li>
+                        <li>unicode-bidi</li>
+                        <li>content</li>
+                        <li>direction</li>
+                        <li>text-combine-upright</li>
+                        <li>all font properties (font-size, font-family, font-weight)</li>
+                        <li>all animation and transition properties</li>
+                    </ul>
+                    <p><br>You can't change:</p>
+                    <ul>
+                        <li>background</li>
+                        <li>padding</li>
+                        <li>width</li>
+                        <li>transform</li>
+                        <li>anything else</li>
+                    </ul>
+                    <p><br>
+                        ::marker is best used for quck changes to the color, font, and content.
+                        <br><br>
+                        <strong>For full control of the marker (background, transforms, or positioning) hide the native
+                            marker with list-style:none and use ::before instead. </strong>
+                    </p>
+                    <div class="card-footer-one">
+                        <ol>
+                            <li>test list item here</li>
+                            <li>test list item here</li>
+                        </ol>
+                        <ul>
+                            <li>test list item here</li>
+                            <li>test list item here</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-tag">pseudo-element</div>
+                    <h3>::backdrop</h3>
+                    <p>::backdrop a special layer (size of viewport) the browser puts behind something in the top layer.
+                        <br><br>Three things trigger it:
+                    </p>
+                    <ol>
+                        <li> dialog opened with showModal()</li>
+                        <li>an element with the popover atttribute that has been shown</li>
+                        <li>an element placed in fullscreen made via the Fullscreen API</li>
+                    </ol>
+                    <p><br>Default semi-transparent black overlay be default
+                        <br><br>Can be styled with solid colors,
+                        gradients, or even backdrop-filter blur that makes the page content behind the dialog appear
+                        frosted.
+                        <br><br>On its own, ::backdrop is an <strong>isolated box</strong> and does not inherit anything
+                        from :root or body.
+                        To
+                        fix this, redeclare them or use a strategy like setting custom properties on the dialog element
+                        and referencing them from there.
+                    </p>
+                    <div class="card-footer-two">
+                        <dialog id="myDialog">
+                            <h2>Hello!</h2>
+                            <button onclick="myDialog.close()">Close</button>
+                        </dialog>
+
+                        <button class="btn primary" onclick="myDialog.showModal()">Open Dialog</button>
+
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-tag">pseudo-element</div>
+                    <h3>::selection</h3>
+                    <p>::selection is the portion of text the user has highlighted.
+                        <br><br>The default style is usually a blue background with white text.
+                        <br><br>Like ::marker, ::selection can
+                        only be styled with these specific things: <br>
+                    </p>
+                    <ul>
+                        <li>color</li>
+                        <li>background-color</li>
+                        <li>text-decoration</li>
+                        <li>text-shadow</li>
+                        <li>stroke-color</li>
+                        <li>stroke-fill</li>
+                        <li>-webkit-text-stroke-color</li>
+                    </ul>
+                    <p><br><strong>Accessibility and Contrast Matter.</strong>
+                        <br><br>
+                        A good rule of thumb is light text on a dark background or dark text on a light background.
+                        To know for use, you should use a contrast checker and aim for at least a 4.5:1 contrast ratio.
+                    </p>
+                    <div class="card-footer-three">
+                        <p>Here is a practice paragraph for you to highlight so you can see the contrast and how
+                            important it is to make sure you have a high contrast so it gets a high score on the
+                            accessibility checker.</p>
+                    </div>
+                    <div class="card-footer-four">
+                        <p>Here is a practice paragraph for you to highlight so you can see the contrast and how
+                            important it is to make sure you have a high contrast so it gets a high score on the
+                            accessibility checker.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <h2>Overall</h2>
+        <section class="overall">
+            <div class="topic">
+                <h3>::marker</h3>
+                <ul>
+                    <li>List bullets and numbers</li>
+                    <li>Limited styling</li>
+                    <li>Use ::before for full custom control</li>
+                </ul>
+            </div>
+
+            <div class="topic">
+                <h3>::backdrop</h3>
+                <ul>
+                    <li>Layer behind top-layer elements</li>
+                    <li>Dialog + Popover + Fullscreen</li>
+                    <li>Isolated from normal inheritance</li>
+                </ul>
+            </div>
+
+            <div class="topic">
+                <h3>::selection</h3>
+                <ul>
+                    <li>User-highlighted text</li>
+                    <li>Limited styling</li>
+                    <li>Keep strong color contrast</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <p>Click <a
+                href="https://byui-cse.github.io/wdd331r-course/unit/2/learn/choose/pseudo-marker-selection.html">here</a>
+            for
+            more information about marker, backdrop, and selector.</p>
+    </footer>
+</body>
+
+</html>
