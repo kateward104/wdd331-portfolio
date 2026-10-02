@@ -3,3 +3,23 @@
    by layer order without needing !important. */
 
 /* TODO: Add any utility classes you find useful */
+
+::selection {
+   color: var(--color-background);
+   background-color: var(--color-primary);
+}
+
+nav a:focus-visible {
+   outline: 3px solid var(--color-accent);
+   outline-offset: -20px;
+}
+
+:is(a, button, input, textarea, select):focus-visible {
+   outline: 3px solid var(--color-primary);
+   outline-offset: 3px;
+}
+
+
+textarea {
+   width: 70%;
+}

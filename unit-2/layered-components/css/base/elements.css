@@ -9,7 +9,6 @@ body {
    color: var(--color-text);
 }
 
-
 h1,
 h2,
 h3,
@@ -18,16 +17,19 @@ h5,
 h6 {
    color: var(--color-primary);
    font-family: var(--font-heading);
+   padding-block: clamp(var(--spacing-xs), 2vw, var(--spacing-sm));
 }
 
-p {
+p,
+li {
    color: var(--color-text);
    font-family: var(--font-body);
    padding-block: clamp(var(--spacing-xs), 2vw, var(--spacing-sm));
    font-size: clamp(var(--font-size-sm), 2vw, var(--font-size-md));
 }
 
-a {
+
+a:not(.site-nav a) {
    color: var(--color-link);
 
    &:hover {
@@ -35,7 +37,8 @@ a {
    }
 }
 
-/*
-ul {
+
+
+ul:not(.temples) {
    list-style-type: none;
-}*/
+}

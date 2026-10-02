@@ -8,6 +8,8 @@ nav {
    background-color: var(--color-primary);
    display: flex;
    flex-direction: column;
+   justify-content: space-between;
+   text-align: center;
 
    @media (width >=768px) {
       flex-direction: row;
@@ -15,5 +17,21 @@ nav {
 
    a {
       color: var(--color-background);
+      text-decoration: none;
+      padding: clamp(var(--spacing-md), 2vw, var(--spacing-xl));
+   }
+
+   ul {
+      display: flex;
+      flex-direction: column;
+
+      li {
+         padding: clamp(var(--spacing-md), 2vw, var(--spacing-xl));
+      }
+
+      @media (width >=768px) {
+         flex-direction: row;
+      }
+
    }
 }
