@@ -3,9 +3,8 @@
 
 /* TODO: Style the button components */
 
-
-.btn {
-   margin: var(--spacing-md);
+button:not(:disabled) {
+   margin-block: var(--spacing-md);
    color: var(--color-button-text);
    padding: var(--spacing-sm);
    border-radius: var(--border-radius);
@@ -14,15 +13,22 @@
 .primary {
    background-color: var(--color-button-primary);
    color: var(--color-button-text);
-   /*color: var(--color-button-text);
-   padding: var(--spacing-sm);
-   border-radius: var(--border-radius);*/
 }
 
 .secondary {
-   color: var(--color-accent);
-   outline: 2px solid var(--color-button-secondary);
-   /*color: var(--color-button-text);
+   background-color: var(--color-button-secondary);
+   color: var(--color-button-text);
+}
+
+button:disabled {
+   border-radius: var(--border-radius);
    padding: var(--spacing-sm);
-   border-radius: var(--border-radius);*/
+   outline: 2px solid var(--color-button-disabled);
+   background-color: var(--color-background);
+   color: var(--color-button-disabled);
+}
+
+.button-group button {
+   text-align: center;
+   margin: clamp(var(--spacing-sm), 2vw, var(--spacing-md));
 }
