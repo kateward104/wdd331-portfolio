@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print and Forced Colors</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="demonstration.css">
+</head>
+
+<body>
+    <header class="page-header">
+        <h1>Print and Forced Colors</h1>
+        <p>Learn about printing defaults and accessibility functions.</p>
+    </header>
+
+    <main>
+        <section class="card-group">
+            <h2>Study Topics</h2>
+            <div class="cards">
+                <article class="card">
+                    <div class="card-tag">Printing</div>
+                    <h3>print-color-adjust</h3>
+                    <p>Browsers often remove background colors and images to save ink.<br><br>This property tells the
+                        browser whether it should try to preserve your colors when printing.
+                    </p>
+                    <ul>
+                        <li><strong>exact:</strong> Ask the browser to preserve the colors as closely as possible.</li>
+                        <li><strong>economy:</strong> The default. The browser can simplify colors to save resources.
+                        </li>
+                    </ul>
+                    <p><br><strong>When would you need to use exact?</strong></p>
+                    <ul>
+                        <li>Chart colors represent different data.</li>
+                        <li>Color swatches show actual product colors.</li>
+                        <li>Alternating table colors help track rows</li>
+                    </ul>
+                    <p><br>
+                        <strong>The key decision is whether color is content or decoration.</strong> Exact will do the
+                        best it can to match your look.
+                    </p>
+                </article>
+                <article class="card">
+                    <div class="card-tag">Detection</div>
+                    <h3>Forced Colors Mode</h3>
+                    <p>Users with accessibility needs may enable a high-contrast color scheme. The browser replaces many
+                        of your website's colors with system-selected colors to make content easier to
+                        distinguish.<br><br>
+                        CSS lets you detect this mode and fix components that become difficult to
+                        understand.<br><br>Forced Colors Mode is about ensuring people can see and understand your
+                        interface.
+                    </p>
+                    <p><br><strong>System color keywords:</strong></p>
+                    <ul>
+                        <li>Canvas = Background color</li>
+                        <li>CanvasText = Text color on the background</li>
+                        <li>LinkText = Hyperlink color</li>
+                        <li>ButtonFace = Button background color</li>
+                        <li>ButtonText = Button text color</li>
+                        <li>Highlight = Selected item background</li>
+                        <li>HighlightText = Text on a selected item</li>
+                    </ul>
+                    <p><br>Example:
+                    </p>
+                    <p>@media (forced-colors: active) {
+                        .card {
+                        border: 2px solid ButtonText;
+                        }
+                        }
+                    </p>
+                    <p>This gives the card a border using a color selected by the user's system, rather than forcing
+                        your own brand color onto them.
+                    </p>
+                </article>
+                <article class="card">
+                    <div class="card-tag">Control</div>
+                    <h3>forced-color-adjust</h3>
+                    <p>This property is easy to confuse with the forced-colors media query.<br><br>Forced Colors Mode is
+                        about ensuring people can see and understand your
+                        interface.
+                    </p>
+                    <ul>
+                        <li><strong>forced-colors</strong> detects whether the mode is active.</li>
+                        <li><strong>forced-color-adjust</strong> controls whether an element's colors are automatically
+                            adjusted.</li>
+                    </ul>
+                    <p><br>There are three values for forced-color-adjust:
+                    </p>
+                    <ul>
+                        <li><strong>auto:</strong> The default. The browser can replace colors.</li>
+                        <li><strong>none:</strong> The browser will not replace colors.</li>
+                        <li><strong>inherit:</strong> Preserves the parent's color through inheritance, primarily for
+                            SVG use.
+
+                        </li>
+                    </ul>
+                    <p>Example:</p>
+                    <p>@media (forced-colors: active) {
+                        .color-swatch {
+                        forced-color-adjust: none;
+                        }
+                        }</p>
+                    <p><br>If a color swatch represents an actual paint color or product color, changing it could make
+                        the information incorrect.
+                        But there's a catch: opting out can also disable the browser's text backplate, which helps
+                        ensure text contrast.<br><br>Use forced-color-adjust: none sparingly, only when preserving the
+                        original color is genuinely necessary. Never use it just because you dislike how your design
+                        looks in high-contrast mode.</p>
+                </article>
+            </div>
+        </section>
+
+        <h2>Common Problems and How To Fix Them <a href="forced-colors-demo.html">Demo</a></h2>
+        <section class="overall">
+            <div class="topic">
+                <h3>Problem 1: A card's border disappears</h3>
+                <ul>
+                    <li>Your card relies on box-shadow to separate it from the background. Forced Colors Mode removes
+                        box shadows, so the card's edge disappears.</li>
+                    <li><strong>Fix: Add a transparent border.</strong></li>
+                    <li>Ex:
+                        .card {
+                        box-shadow: 0 2px 8px #0002;
+                        border: 1px solid transparent;
+                        }
+                    </li>
+                    <li>Aftermath: the border is invisible in normal mode but gives the browser a boundary it can make
+                        visible in Forced Colors Mode.</li>
+                </ul>
+            </div>
+
+            <div class="topic">
+                <h3>Problem 2: An icon disappears</h3>
+                <ul>
+                    <li>An SVG icon has a hardcoded fill color that becomes indistinguishable from the new background.
+                    </li>
+                    <li><strong>Fix: For a single-color icon, use currentColor.</strong></li>
+                    <li>
+                        example:
+                        < path fill="currentColor" d="..." />
+                    </li>
+                    <li>Aftermath: currentColor inherits the element's text color, allowing the icon to follow the
+                        browser's adjusted color.
+                        For meaningful multicolor artwork, such as a logo, the solution may be different.</li>
+                </ul>
+            </div>
+
+            <div class="topic">
+                <h3>Problem 3: A toggle's state becomes unclear</h3>
+                <ul>
+                    <li>A custom toggle uses only green and gray backgrounds to distinguish on from off. When the colors
+                        are replaced, both states may look the same.</li>
+                    <li><strong>Fix: Add another visual distinction, such as a border, outline, or position
+                            change.</strong></li>
+                    <li>Aftermath: The user should be able to tell whether the toggle is on or off without relying on
+                        color alone.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <p>Click <a
+                href="https://byui-cse.github.io/wdd331r-course/unit/3/learn/choose/print-forced-colors.html">here</a>
+            for
+            more information about print and forced colors.</p>
+    </footer>
+</body>
+
+</html>

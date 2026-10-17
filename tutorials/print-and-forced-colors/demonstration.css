@@ -1,0 +1,24 @@
+.card {
+    padding: 2rem;
+}
+
+.card-footer-one,
+.card-footer-two,
+.card-footer-three {
+    padding-top: 2rem;
+}
+
+.overall {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin: 1.5rem;
+}
+
+
+
+@media print {
+    .chart {
+        print-color-adjust: exact;
+    }
+}

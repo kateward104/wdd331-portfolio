@@ -2,10 +2,33 @@
 <html lang="en">
 
 <head>
+    <details class="theme-menu">
+        <summary class="theme-control">
+            <span class="visually-hidden">Color scheme</span>
+        </summary>
+        <div class="theme-extra" role="group" aria-label="Choose color scheme">
+            <label class="theme-control theme-pick" data-theme-pick="light">
+                <input name="theme-preference" type="radio" value="light">
+                <span aria-hidden="true">&#9788;&#65039;</span>
+                <span class="visually-hidden">Light</span>
+            </label>
+            <label class="theme-control theme-pick" data-theme-pick="system">
+                <input name="theme-preference" type="radio" value="system" checked>
+                <span aria-hidden="true">&#9881;&#65039;</span>
+                <span class="visually-hidden">System default</span>
+            </label>
+            <label class="theme-control theme-pick" data-theme-pick="dark">
+                <input name="theme-preference" type="radio" value="dark">
+                <span aria-hidden="true">&#127766;</span>
+                <span class="visually-hidden">Dark</span>
+            </label>
+        </div>
+    </details>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katelyn Wardell's Web Design Portfolio</title>
-    <link rel="stylesheet" href="dist/styles.css">
+    <script src="js/theme-preference.js"></script>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -52,14 +75,18 @@
         <section class="tutorials">
             <ol>
                 <li>
-                    <a href="unit-2/marker-backdrop-selectors-tutorial/index.html">Marker, Backdrop, and Selection
+                    <a href="tutorials/marker-backdrop-selectors/index.html">Marker, Backdrop, and Selection
                         Tutorial Page with Info</a>
-                    <a href="https://drive.google.com/file/d/1A0H27uNCu2jufxwhR8BHYc3uYF1shDU8/view?usp=drive_link">Marker,
-                        Backdrop, and Selection Video</a>
+                    <a href="#">Lightning CSS Tutorial</a>
+                    <a href="tutorials/print-and-forced-colors/index.html">Print and Forced Colors Tutorial</a>
                 </li>
                 <li>
+                    <a href="https://drive.google.com/file/d/1yWMQNm7lFEt0KV_tevi8Hr5O6fiK3YXN/view?usp=sharing">Marker,
+                        Backdrop, and Selection Video</a>
                     <a href="https://drive.google.com/file/d/1xAWG0f0pUzM1p-AJL8QZEonz5OJ0-K2o/view?usp=drive_link">Lightning
                         CSS Video</a>
+                    <a href="https://drive.google.com/file/d/1qAdMZbkg9cdiUEoANVYUXkDdQAt3QEga/view?usp=sharing">Print
+                        and Forced Colors Video</a>
                 </li>
             </ol>
             <!--Put tutorial link here-->

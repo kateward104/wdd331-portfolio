@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forced Colors: Three Common Problems</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      color-scheme: light;
+      font-family: system-ui, sans-serif;
+      color: #202633;
+      background: #f3f5f8;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+
+    p {
+      line-height: 1.5;
+    }
+
+    .intro {
+      max-width: 700px;
+      color: #4b5563;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .preview-button {
+      border: 0;
+      border-radius: .5rem;
+      padding: .7rem 1rem;
+      background: #263b66;
+      color: white;
+    }
+
+    .example {
+      margin: 2.5rem 0;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      min-width: 0;
+      padding: 1rem;
+      border-radius: .75rem;
+      background: white;
+      border: 1px solid #d7dce5;
+    }
+
+    .sample {
+      min-height: 100px;
+      display: grid;
+      place-items: center;
+      margin: 1rem 0;
+      border-radius: .5rem;
+      background: #edf2fb;
+    }
+
+    .shadow-card {
+      padding: 1rem;
+      background: white;
+      border-radius: .5rem;
+      box-shadow: 0 3px 12px #0004;
+    }
+
+    .border-card {
+      padding: 1rem;
+      background: white;
+      border: 2px solid transparent;
+      border-radius: .5rem;
+    }
+
+    .home-button {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      border: 1px solid #263b66;
+      border-radius: .4rem;
+      padding: .65rem 1rem;
+      background: #263b66;
+      color: white;
+    }
+
+    .home-button svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .broken-icon svg {
+      fill: white;
+    }
+
+    .fixed-icon svg {
+      fill: currentColor;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      color: #202633;
+    }
+
+    .track {
+      width: 3rem;
+      height: 1.7rem;
+      border-radius: 2rem;
+      background: #777;
+      padding: .2rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .thumb {
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      background: white;
+    }
+
+    .toggle[aria-checked="true"] .track {
+      background: #176c43;
+      justify-content: flex-end;
+    }
+
+    .fixed-toggle[aria-checked="true"] .thumb {
+      border: 3px double #111;
+    }
+
+    .fixed-toggle[aria-checked="false"] .thumb {
+      border: 2px solid #111;
+    }
+
+    .toggle:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #bb4a00;
+      outline-offset: 4px;
+    }
+
+    .code {
+      display: block;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+      padding: .75rem;
+      border-radius: .4rem;
+      background: #f0f2f6;
+      color: #263246;
+      font: .8rem/1.6 ui-monospace, monospace;
+    }
+
+    .changed {
+      display: block;
+      margin: 0 -.25rem;
+      padding: 0 .25rem;
+      background: #d9f3df;
+      color: #174d2a;
+      font-weight: 700;
+    }
+
+    .note {
+      font-size: .9rem;
+      color: #4b5563;
+    }
+
+    /* Teaching simulation: mimics the appearance of forced colors. */
+    .simulate .sample {
+      background: Canvas;
+      color: CanvasText;
+    }
+
+    .simulate .shadow-card {
+      box-shadow: none;
+      background: Canvas;
+      color: CanvasText;
+    }
+
+    .simulate .border-card {
+      border-color: ButtonText;
+      background: Canvas;
+      color: CanvasText;
+    }
+
+    .simulate .home-button {
+      background: ButtonFace;
+      color: ButtonText;
+      border-color: ButtonText;
+    }
+
+    .simulate .broken-icon svg {
+      fill: ButtonFace;
+    }
+
+    .simulate .fixed-icon svg {
+      fill: currentColor;
+    }
+
+    .simulate .track {
+      background: Canvas;
+      border: 1px solid ButtonText;
+    }
+
+    .simulate .toggle[aria-checked="true"] .track {
+      background: Canvas;
+    }
+
+    .simulate .thumb {
+      background: Canvas;
+    }
+
+    .simulate .fixed-toggle .thumb {
+      border-color: ButtonText;
+    }
+
+    @media (forced-colors: active) {
+      .shadow-card {
+        box-shadow: none;
+      }
+
+      .border-card {
+        border-color: ButtonText;
+      }
+
+      .home-button {
+        background: ButtonFace;
+        color: ButtonText;
+        border-color: ButtonText;
+      }
+
+      .broken-icon svg {
+        fill: ButtonFace;
+      }
+
+      .fixed-icon svg {
+        fill: currentColor;
+      }
+
+      .track {
+        border: 1px solid ButtonText;
+      }
+
+      .fixed-toggle .thumb {
+        border-color: ButtonText;
+      }
+    }
+
+    @media (max-width: 760px) {
+      body {
+        padding: 1rem;
+      }
+
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Forced Colors: Three Common Problems</h1>
+    <p class="intro">
+      Compare the normal appearance with a broken and fixed version.
+      Turn on the preview to see what can go wrong when colors and
+      decorative effects are overridden.
+    </p>
+
+    <div class="toolbar">
+      <button class="preview-button" id="preview" aria-pressed="false">
+        Turn on forced-colors preview
+      </button>
+      <span id="status" aria-live="polite">Normal appearance</span>
+    </div>
+
+    <section class="example">
+      <h2>1. Card boundaries</h2>
+      <p class="note">Problem: the shadow disappears, leaving no visible edge.</p>
+      <div class="comparison">
+        <article class="card">
+          <h3>Before</h3>
+          <div class="sample">
+            <div class="shadow-card">Account settings</div>
+          </div>
+          <p class="note">A shadow defines the card's boundary.</p>
+          <code class="code">box-shadow: 0 3px 12px #0004;</code>
+        </article>
+
+        <article class="card">
+          <h3>Broken</h3>
+          <div class="sample">
+            <div class="shadow-card">Account settings</div>
+          </div>
+          <p class="note">Without the shadow, the boundary is lost.</p>
+          <code class="code">box-shadow: 0 3px 12px #0004;
+<span class="changed">/* No alternative boundary */</span></code>
+        </article>
+
+        <article class="card">
+          <h3>Fixed</h3>
+          <div class="sample">
+            <div class="border-card">Account settings</div>
+          </div>
+          <p class="note">A border remains visible in forced colors.</p>
+          <code class="code">border: 2px solid transparent;
+<span class="changed">@media (forced-colors: active) {
+  border-color: ButtonText;
+}</span></code>
+        </article>
+      </div>
+    </section>
+
+    <section class="example">
+      <h2>2. Icon visibility</h2>
+      <p class="note">Problem: a hardcoded white icon blends into the button face.</p>
+      <div class="comparison">
+        <article class="card">
+          <h3>Before</h3>
+          <div class="sample">
+            <button class="home-button">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z" />
+              </svg>
+              Home
+            </button>
+          </div>
+          <p class="note">White icon contrasts with the dark button.</p>
+          <code class="code">fill: white;</code>
+        </article>
+
+        <article class="card">
+          <h3>Broken</h3>
+          <div class="sample">
+            <button class="home-button broken-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z" />
+              </svg>
+              Home
+            </button>
+          </div>
+          <p class="note">The icon matches the button face and disappears.</p>
+          <code class="code">.broken-icon svg {
+<span class="changed">  fill: ButtonFace;</span>
+}</code>
+        </article>
+
+        <article class="card">
+          <h3>Fixed</h3>
+          <div class="sample">
+            <button class="home-button fixed-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z" />
+              </svg>
+              Home
+            </button>
+          </div>
+          <p class="note">The icon inherits the text color.</p>
+          <code class="code">.fixed-icon svg {
+<span class="changed">  fill: currentColor;</span>
+}</code>
+        </article>
+      </div>
+    </section>
+
+    <section class="example">
+      <h2>3. Toggle state</h2>
+      <p class="note">Problem: color alone doesn't communicate whether the switch is on.</p>
+      <div class="comparison">
+        <article class="card">
+          <h3>Before</h3>
+          <div class="sample">
+            <button class="toggle" role="switch" aria-checked="true" onclick="toggleSwitch(this)">
+              <span class="track"><span class="thumb"></span></span>
+              Notifications
+            </button>
+          </div>
+          <p class="note">Green means on; gray means off.</p>
+          <code class="code">.track { background: #777; }
+[aria-checked="true"] .track {
+  background: #176c43;
+}</code>
+        </article>
+
+        <article class="card">
+          <h3>Broken</h3>
+          <div class="sample">
+            <button class="toggle" role="switch" aria-checked="true" onclick="toggleSwitch(this)">
+              <span class="track"><span class="thumb"></span></span>
+              Notifications
+            </button>
+          </div>
+          <p class="note">When track colors are overridden, the state is unclear.</p>
+          <code class="code">.track { background: #777; }
+<span class="changed">/* State depends on color */</span></code>
+        </article>
+
+        <article class="card">
+          <h3>Fixed</h3>
+          <div class="sample">
+            <button class="toggle fixed-toggle" role="switch" aria-checked="true" onclick="toggleSwitch(this)">
+              <span class="track"><span class="thumb"></span></span>
+              Notifications
+            </button>
+          </div>
+          <p class="note">A thumb border adds a visible state cue.</p>
+          <code class="code">.fixed-toggle[aria-checked="true"]
+  .thumb {
+<span class="changed">  border: 3px double ButtonText;</span>
+}</code>
+        </article>
+      </div>
+      <p class="note">Click any switch to toggle it. Each example works independently.</p>
+    </section>
+
+    <p class="note">
+      The preview is a visual simulation, not a substitute for testing
+      in actual Forced Colors Mode. In real mode, the browser and operating
+      system determine the final colors.
+    </p>
+  </main>
+
+  <script>
+    const preview = document.querySelector("#preview");
+    const status = document.querySelector("#status");
+
+    preview.addEventListener("click", () => {
+      const enabled = document.body.classList.toggle("simulate");
+      preview.setAttribute("aria-pressed", String(enabled));
+      preview.textContent = enabled
+        ? "Turn off forced-colors preview"
+        : "Turn on forced-colors preview";
+      status.textContent = enabled
+        ? "Simulated forced-colors appearance"
+        : "Normal appearance";
+    });
+
+    function toggleSwitch(button) {
+      const isOn = button.getAttribute("aria-checked") === "true";
+      button.setAttribute("aria-checked", String(!isOn));
+    }
+  </script>
+</body>
+
+</html>
