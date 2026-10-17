@@ -12,13 +12,13 @@
    .card {
       background-color: var(--color-background);
       outline: 3px solid var(--color-accent);
-      border-radius: var(--border-radius);
+      border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
       padding: var(--spacing-md);
    }
 
    .card-tag {
-      font-family: var(--font-body);
+      font-family: var(--font-family-body);
       font-style: italic;
       color: var(--color-primary);
       font-size: clamp(var(--font-size-sm), 2vw, var(--font-size-md));

@@ -1,7 +1,7 @@
-:root {
-    /* TODO: Define color tokens here */
-
+:root,
+html {
     /* Extra color from color palette #BF9850 */
+    /*
     --color-primary: #B82938;
     --color-accent: #BF9850;
     --color-text: #452527;
@@ -13,5 +13,71 @@
     --color-button-secondary: var(--color-accent);
     --color-button-text: var(--color-background);
     --color-button-hover: color-mix(in srgb, var(--color-accent) 50%, black 50%);
-    --color-button-disabled: rgb(112, 11, 11);
+    --color-button-disabled: rgb(112, 11, 11);*/
+
+
+    /* ---- Seeds ---- */
+    --seed-bg: #f4f6f8;
+    --seed-surface: #ffffff;
+    --seed-text: #452527;
+    /* I changed the seed-text-muted to headers since it would work better for my design. */
+    --seed-text-headers: #a57b2d;
+    --seed-accent: #B82938;
+    /* CHANGE THIS: Choose your own hue */
+    --seed-accent-hover: color-mix(in oklch, var(--seed-accent) 80%, black);
+    --seed-link: var(--seed-accent);
+    --seed-link-hover: var(--seed-accent-hover);
+    --seed-border: #f0e2e6;
+    --seed-border-strong: #e1cbcb;
+
+    /* ---- Accent ramp ---- */
+    --accent-200: color-mix(in oklch, var(--seed-accent) 30%, white);
+    --accent-300: color-mix(in oklch, var(--seed-accent) 50%, white);
+    --accent-400: color-mix(in oklch, var(--seed-accent) 75%, white);
+    --accent-500: var(--seed-accent);
+    --accent-600: color-mix(in oklch, var(--seed-accent) 80%, black);
+    --accent-700: color-mix(in oklch, var(--seed-accent) 60%, black);
+    --accent-800: color-mix(in oklch, var(--seed-accent) 40%, black);
+
+    /* ---- Semantic tokens ---- */
+    --color-bg: light-dark(var(--seed-bg), oklch(0.18 0.02 260));
+    --color-surface: light-dark(var(--seed-surface), oklch(0.22 0.03 260));
+    --color-text: light-dark(var(--seed-text), var(--seed-bg));
+    --color-text-headers: light-dark(var(--seed-text-headers), oklch(76.483% 0.13329 79.761));
+    --color-accent: light-dark(var(--seed-accent), var(--accent-200));
+    --color-accent-hover: light-dark(var(--seed-accent-hover), var(--accent-400));
+    --color-link: light-dark(var(--seed-link), var(--accent-300));
+    --color-link-hover: light-dark(var(--seed-link-hover), var(--accent-400));
+    --color-border: light-dark(var(--seed-border), oklch(0.32 0.02 260));
+    --color-border-strong: light-dark(var(--seed-border-strong), oklch(29.801% 0.04786 256.246));
+
+    /* Tint the native checkboxes, radios, and range sliders */
+    accent-color: var(--color-accent);
+
+    /* ---- Header chrome ---- */
+    --header-bg: var(--color-accent);
+    --header-text: light-dark(#ffffff, #f0f4f8);
+
+    /* ---- Theme toggle (consumed by theme-toggle.css) ---- */
+    --theme-toggle-bg: color-mix(in srgb, var(--header-text) 20%, var(--header-bg));
+    --theme-toggle-border: color-mix(in srgb, var(--header-text) 40%, var(--header-bg));
+    --theme-toggle-bg-hover: color-mix(in srgb, var(--header-text) 30%, var(--header-bg));
+    --theme-toggle-border-hover: color-mix(in srgb, var(--header-text) 55%, var(--header-bg));
+
+    /* ---- Shadows ---- */
+    --shadow-color: light-dark(rgb(0 0 0 / 0.09), rgb(0 0 0 / 0.28));
+    --shadow-sm: 0 1px 2px 0 var(--shadow-color);
+    --shadow-md: 0 1px 3px 0 var(--shadow-color);
+}
+
+/* User chose dark */
+html:has(input[name='theme-preference'][value='dark']:checked) {
+    color-scheme: dark;
+}
+
+/* User chose system and OS is dark */
+@media (prefers-color-scheme: dark) {
+    html:has(input[name='theme-preference'][value='system']:checked) {
+        color-scheme: dark;
+    }
 }

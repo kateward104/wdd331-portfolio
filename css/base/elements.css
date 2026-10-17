@@ -1,9 +1,9 @@
 body {
-    font-family: var(--font-body);
+    font-family: var(--font-family-body);
     color: var(--color-text);
-    background-color: var(--color-background);
+    background-color: var(--color-bg);
     line-height: 1.6;
-    padding: var(--space-lg);
+    padding: var(--spacing-lg);
 }
 
 main {
@@ -25,13 +25,9 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--color-primary);
-    font-family: var(--font-heading);
+    color: var(--color-text-headers);
+    font-family: var(--font-family-heading);
     /*padding-block: clamp(var(--spacing-xs), 2vw, var(--spacing-sm));*/
-}
-
-h2 {
-    color: var(--color-accent);
 }
 
 p,

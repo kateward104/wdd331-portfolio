@@ -1,22 +1,19 @@
-/* Navigation component: .site-nav and its links
-   Style the active link using aria-current. */
-
-/* TODO: Style the navigation */
-
-
 nav {
-   background-color: var(--color-primary);
+   background-color: var(--color-bg);
    display: flex;
    flex-direction: column;
    justify-content: space-between;
    text-align: center;
+   border-bottom: 3px solid var(--color-accent);
+   margin-bottom: var(--spacing-lg);
 
    @media (width >=768px) {
       flex-direction: row;
    }
 
-   a {
-      color: var(--color-background);
+   a,
+   p {
+      color: var(--color-text);
       text-decoration: none;
       padding: clamp(var(--spacing-md), 2vw, var(--spacing-xl));
    }
@@ -24,6 +21,7 @@ nav {
    ul {
       display: flex;
       flex-direction: column;
+      list-style-type: none;
 
       li {
          padding: clamp(var(--spacing-md), 2vw, var(--spacing-xl));

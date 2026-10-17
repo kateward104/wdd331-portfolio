@@ -20,8 +20,9 @@ every push to main.
 
 ## Tutorials
 
-- [Marker, Backdrop, and Selectors Tutorial](unit-2/marker-backdrop-selectors-tutorial/index.html)
-- [Lighting CSS](unit-2/css-bundling/index.html)
+- [Marker, Backdrop, and Selectors Tutorial](tutorials/marker-backdrop-selectors/index.html)
+- [Lighting CSS](tutorials/lightning-css/index.html)
+- [Print and Forced Color](tutorials/print-and-forced-colors/index.html)
 
 
 ## Build Tool
