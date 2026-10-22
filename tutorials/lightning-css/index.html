@@ -66,132 +66,103 @@
                     <h3>Install Node.js</h3>
                     <ul>
                         <li>Check what version of node you have with node --version.</li>
-                        <li>white-space</li>
-                        <li>unicode-bidi</li>
-                        <li>content</li>
-                        <li>direction</li>
-                        <li>text-combine-upright</li>
-                        <li>all font properties (font-size, font-family, font-weight)</li>
-                        <li>all animation and transition properties</li>
+                        <li>If it is a version number like v20.x.x or higher you are good, otherwise, go install LTS
+                            (Long Term Support) from nodejs.org.</li>
                     </ul>
-                    <p><br>You can't change:</p>
-                    <ul>
-                        <li>background</li>
-                        <li>padding</li>
-                        <li>width</li>
-                        <li>transform</li>
-                        <li>anything else</li>
-                    </ul>
-                    <p><br>
-                        ::marker is best used for quick changes to the color, font, and content.
-                        <br><br>
-                        <strong>For full control of the marker (background, transforms, or positioning) hide the native
-                            marker with list-style:none and use ::before instead. </strong>
-                    </p>
-                    <div class="card-footer-one">
-                        <ol>
-                            <li>test list item here</li>
-                            <li>test list item here</li>
-                        </ol>
-                        <ul>
-                            <li>test list item here</li>
-                            <li>test list item here</li>
-                        </ul>
-                    </div>
                 </article>
                 <article class="card">
-                    <div class="card-tag">pseudo-element</div>
-                    <h3>::backdrop</h3>
-                    <p>::backdrop a special layer (size of viewport) the browser puts behind something in the top layer.
-                        <br><br>Three things trigger it:
-                    </p>
-                    <ol>
-                        <li> dialog opened with showModal()</li>
-                        <li>an element with the popover atttribute that has been shown</li>
-                        <li>an element placed in fullscreen made via the Fullscreen API</li>
-                    </ol>
-                    <p><br>Default semi-transparent black overlay by default
-                        <br><br>Can be styled with solid colors,
-                        gradients, or even backdrop-filter blur that makes the page content behind the dialog appear
-                        frosted.
-                        <br><br>On its own, ::backdrop is an <strong>isolated box</strong> and does not inherit anything
-                        from :root or body.
-                        To
-                        fix this, redeclare them or use a strategy like setting custom properties on the dialog element
-                        and referencing them from there.
-                    </p>
-                    <div class="card-footer-two">
-                        <dialog id="myDialog">
-                            <h2>Hello!</h2>
-                            <button onclick="myDialog.close()">Close</button>
-                        </dialog>
-
-                        <button class="btn primary" onclick="myDialog.showModal()">Open Dialog</button>
-
-                    </div>
+                    <div class="card-tag">Step 2</div>
+                    <h3>Create a package.json file</h3>
+                    <ul>
+                        <li>Make sure you are in the right folder in the terminal, not just selecting the file!</li>
+                        <li>npm init -y will do this for you.</li>
+                        <li>These act as the project's instruction sheet by recording which packages the project needs
+                            and which commands you want to be run.</li>
+                        <li>If you have pnpm installed you can use pnpm init instead.</li>
+                    </ul>
                 </article>
                 <article class="card">
-                    <div class="card-tag">pseudo-element</div>
-                    <h3>::selection</h3>
-                    <p>::selection is the portion of text the user has highlighted.
-                        <br><br>The default style is usually a blue background with white text.
-                        <br><br>Like ::marker, ::selection can
-                        only be styled with these specific things: <br>
-                    </p>
+                    <div class="card-tag">Step 3</div>
+                    <h3>Create a .gitignore file with the following content: node_modules/</h3>
                     <ul>
-                        <li>color</li>
-                        <li>background-color</li>
-                        <li>text-decoration</li>
-                        <li>text-shadow</li>
-                        <li>stroke-color</li>
-                        <li>stroke-fill</li>
-                        <li>-webkit-text-stroke-color</li>
+                        <li>node_modules is essentially the storage room for packages which can contain thousands of
+                            files so we want to skip it in .gitignore.</li>
                     </ul>
-                    <p><br><strong>Accessibility and Contrast Matter.</strong>
-                        <br><br>
-                        A good rule of thumb is light text on a dark background or dark text on a light background.
-                        To know for use, you should use a contrast checker and aim for at least a 4.5:1 contrast ratio.
-                    </p>
-                    <div class="card-footer-three">
-                        <p>Here is a practice paragraph for you to highlight so you can see the contrast and how
-                            important it is to make sure you have a high contrast so it gets a high score on the
-                            accessibility checker.</p>
-                    </div>
-                    <div class="card-footer-four">
-                        <p>Here is a practice paragraph for you to highlight so you can see the contrast and how
-                            important it is to make sure you have a high contrast so it gets a high score on the
-                            accessibility checker.</p>
-                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-tag">Step 4</div>
+                    <h3>Lightning CSS needs two packages: Lightning CSS itself and a file watcher for automatic rebuilds
+                        during development./</h3>
+                    <ul>
+                        <li>npm install --save-dev lightningcss -cli chokidar -cli</li>
+                        <li>At this point, this is the entire install since Lightning CSS handles bundline, vendor
+                            prefixing, minification, and syntax lowerings in one package.</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <div class="card-tag">Step 5</div>
+                    <h3>Add a Build Script</h3>
+                    <ul>
+                        <li>Open package.json and find the "scripts" section. Replace the default "test" script with a
+                            build command:</li>
+                        <li>"scripts": {
+                            "build": "lightningcss --bundle --minify --targets \">=0.25%\"css/main.css -o
+                            dist/styles.css",
+                            "watch": "chokidar \"css/**/*.css\" -c \"npm run build\" --debounce 600"
+                            }
+                        </li>
+                        <li>npm run build runs once, if you change your CSS files, you will need to run it again.</li>
+                        <li>npm run watch starts a watcher that monitors your source CSS files. When you save a CSS
+                            file, it triggers another build automatically. It stays running in the terminal until you
+                            stop it with Ctrl+C.</li>
+                        <li>Here's What Each Flag Does:<br>--bundle: takes all @import files and inline css into one
+                            output/file.<br>--minify: gets rid of comments and whitespace.<br>--targets ">=0.25%": tells
+                            Lightning CSS which browsers to support. It will automatically add vendor prefixes where
+                            needed and, when possible, lower modern CSS syntax into equivalent older syntax for those
+                            browswers. The >= 0.25% value means "any browser with at least 0.25% global usage," which is
+                            a reasonable default.<br>-o dist/styles.css: the output file. The dist/directory will be
+                            created automatically.</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <div class="card-tag">Step 6</div>
+                    <h3>Run the Build Script</h3>
+                    <ul>
+                        <li>npm run build</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <div class="card-tag">Step 7</div>
+                    <h3>Update index.html</h3>
+                    <ul>
+                        <li>Update index.html to link to "dist/styles.css" instead of "css/main.css" since it has the
+                            updated page.</li>
+                    </ul>
                 </article>
             </div>
         </section>
 
-        <h2>Overall</h2>
+        <h2>Things to Remember</h2>
         <section class="overall">
             <div class="topic">
-                <h3>::marker</h3>
+                <h3>For Continous Editing</h3>
+                <p>If you want to continue editing CSS without constantly running the build script, use npm run watch.
+                </p>
                 <ul>
-                    <li>List bullets and numbers</li>
-                    <li>Limited styling</li>
-                    <li>Use ::before for full custom control</li>
+                    <li>npm install --save dev chokidar-cli</li>
+                    <li>add a watch script to package.json alongside your build script:<br>"scripts": {<br> "watch":
+                        "chokidar 'css/**/*.css' -c 'npm run build' --debounce 600"<br>}</li>
+                    <li>Run npm run watch</li>
+                    <li>Every time you edit CSs, it will wait 600 milliseconds then runs your script. Press Ctrl+C to
+                        stop watching.</li>
                 </ul>
             </div>
 
             <div class="topic">
-                <h3>::backdrop</h3>
+                <h3>Using npx</h3>
+                <p>npx gives you the ability to see how Lightning CSS will impact your code, but it isn't permanent.</p>
                 <ul>
-                    <li>Layer behind top-layer elements</li>
-                    <li>Dialog + Popover + Fullscreen</li>
-                    <li>Isolated from normal inheritance</li>
-                </ul>
-            </div>
-
-            <div class="topic">
-                <h3>::selection</h3>
-                <ul>
-                    <li>User-highlighted text</li>
-                    <li>Limited styling</li>
-                    <li>Keep strong color contrast</li>
+                    <li>npx lightningcss-cli --bundle --minify --targets ">=0.25%" css/main.css -o dist/styles.css</li>
                 </ul>
             </div>
         </section>
@@ -199,9 +170,9 @@
 
     <footer class="page-footer">
         <p>Click <a
-                href="https://byui-cse.github.io/wdd331r-course/unit/2/learn/choose/pseudo-marker-selection.html">here</a>
+                href="https://byui-cse.github.io/wdd331r-course/unit/2/learn/choose/lightning-css-demo.html">here</a>
             for
-            more information about marker, backdrop, and selector.</p>
+            more information about Lightning CSS.</p>
     </footer>
 </body>
 
