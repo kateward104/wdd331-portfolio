@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clip Path and Mask Image</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="js/theme-preference.js"></script>
+    <link rel="stylesheet" href="demonstration.css">
+</head>
+
+
+<body>
+    <nav>
+        <p><b>WDD 331R Advanced CSS</b></p>
+        <ul>
+            <li>
+                <a href="../../../index.html">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="https://byui-cse.github.io/wdd331r-course/index.html">
+                    Additional Resources
+                </a>
+            </li>
+            <li>
+                <details class="theme-menu">
+                    <summary class="theme-control">
+                        <span class="visually-hidden">Color scheme</span>
+                    </summary>
+                    <div class="theme-extra" role="group" aria-label="Choose color scheme">
+                        <label class="theme-control theme-pick" data-theme-pick="light">
+                            <input name="theme-preference" type="radio" value="light">
+                            <span aria-hidden="true">&#9788;&#65039;</span>
+                            <span class="visually-hidden">Light</span>
+                        </label>
+                        <label class="theme-control theme-pick" data-theme-pick="system">
+                            <input name="theme-preference" type="radio" value="system" checked>
+                            <span aria-hidden="true">&#9881;&#65039;</span>
+                            <span class="visually-hidden">System default</span>
+                        </label>
+                        <label class="theme-control theme-pick" data-theme-pick="dark">
+                            <input name="theme-preference" type="radio" value="dark">
+                            <span aria-hidden="true">&#127766;</span>
+                            <span class="visually-hidden">Dark</span>
+                        </label>
+                    </div>
+                </details>
+            </li>
+        </ul>
+    </nav>
+    <header class="page-header">
+        <h1>Clip Path and Mask Image</h1>
+        <p>Learn about clip paths and mask images in CSS.</p>
+    </header>
+
+
+    <main>
+        <section class="card-group">
+            <h2>Clip Path and Mask Examples</h2>
+            <div class="cards">
+                <article class="card">
+                    <img class="clip-path-one" src="images/clip-path-example.jpg" alt="Example of clip path">
+                    <div class="card-tag">clip-path</div>
+                    <h3>circle()</h3>
+                    <p>Circle: 35%<br><br>Clips/crops the image into a circle shape with a hard border. 100% shows
+                        the
+                        whole image as it is, 0% makes it such a small circle, it is non-existent.
+                    </p>
+                </article>
+                <article class="card">
+                    <img class="clip-path-two" src="images/clip-path-example.jpg" alt="Example of clip path">
+                    <div class="card-tag">clip-path</div>
+                    <h3>ellipse()</h3>
+                    <p>clip-path: ellipse(40% 25% at center);<br><br>Clips/crops the image into an ellipse shape
+                        with a hard border. ellipse( radius-x%
+                        radius-y%
+                        at (position) )
+                    </p>
+                </article>
+                <article class="card">
+                    <img class="clip-path-three" src="images/clip-path-example.jpg" alt="Example of clip path">
+                    <div class="card-tag">clip-path</div>
+                    <h3>inset()</h3>
+                    <p>clip-path: inset(8% round 1.5rem);<br><br>Inset if useful for cropping edges off an image or
+                        creating a round rectangle that differs from border-radius (clipped content is truly
+                        invisible, not just hidden behind rounded corners).
+                    </p>
+                </article>
+                <article class="card">
+                    <img class="clip-path-four" src="images/clip-path-example.jpg" alt="Example of clip path">
+                    <div class="card-tag">clip-path</div>
+                    <h3>polygon()</h3>
+                    <p>clip-path: inset(8% round 1.5rem);<br><br>Polygon is the most flexible because you define
+                        each vertex as an x/y percentage or length, letting you create triangles, hexagons, arrows,
+                        diagonal slices, or any other straight-edged shape.
+                    </p>
+                </article>
+                <article class="card">
+                    <img class="clip-path-five" src="images/clip-path-example.jpg" alt="Example of clip path">
+                    <div class="card-tag">clip-path</div>
+                    <h3>path()</h3>
+                    <p>This can be used to animate, along as the polygon shape has the same number of verticies (points)
+                        from start to finish.
+                    </p>
+                </article>
+                <article class="card">
+                    <img class="clip-path-six" src="images/clip-path-example.jpg" alt="Example of clip path">
+                    <div class="card-tag">mask-image</div>
+                    <h3>linear mask-image
+                    </h3>
+                    <p>-webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+                        <br>mask-image: linear-gradient(to bottom, black 50%, transparent 100%);<br><br>This uses
+                        mask-image linearly.
+                    </p>
+                </article>
+                <article class="card">
+                    <img class="clip-path-seven" src="images/clip-path-example.jpg" alt="Example of clip path">
+                    <div class="card-tag">mask-image</div>
+                    <h3>vignette mask-image
+                    </h3>
+                    <p>-webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+                        <br>mask-image: linear-gradient(to bottom, black 50%, transparent 100%);<br><br>This uses
+                        mask-image linearly.
+                    </p>
+                </article>
+                <article class="card">
+                    <img class="clip-path-eight" src="images/clip-path-example.jpg" alt="Example of clip path">
+                    <img class="clip-path-nine" src="images/clip-path-example.jpg" alt="Example of clip path">
+                    <div class="card-tag">mask-image</div>
+                    <h3>mask-size and mask-repeat gotcha</h3>
+                    <p>If your mask is smaller than the element, it repeats and creates an unexpected pattern.</p>
+                </article>
+            </div>
+        </section>
+
+        <h2>When to Use Which</h2>
+        <section class="overall">
+            <div class="topic">
+                <p>The choice between clipping and masking comes down to the kind of edge you need: </p>
+                <ul>
+                    <li><strong>Your card relies on box-shadow to separate it from the background.</strong> Forced
+                        Colors Mode removes
+                        box shadows, so the card's edge disappears.</li>
+                    <li><strong>Soft fades, gradual transparency, or complex shapes from images:</strong> Use
+                        mask-image. It handles
+                        partial transparency that clip paths cannot express. </li>
+                    <li><strong>Animatable shape reveals:</strong> Use clip-path with matching vertex counts. Mask
+                        images are not
+                        smoothly animatable in the same way. </li>
+                    <li><strong>Broad browser support without prefixes:</strong> clip-path wins. mask-image still
+                        requires -webkit- in
+                        most shipping browsers. </li>
+                </ul>
+                <p>In practice, clip-path handles about 80% of non-rectangular layout needs. Reach for mask-image when
+                    you need the soft edges or image-based shapes that clipping cannot produce.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <p>Click <a href="https://byui-cse.github.io/wdd331r-course/unit/3/learn/choose/clip-and-mask.html">here</a>
+            for
+            more information about clip-path and mask-image.</p>
+    </footer>
+</body>
+
+</html>
