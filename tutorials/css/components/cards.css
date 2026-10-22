@@ -7,14 +7,16 @@
 .cards {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-   gap: var(--spacing-lg);
+   grid-auto-rows: auto;
+   column-gap: var(--spacing-lg);
+   row-gap: var(--spacing-sm);
 
    .card {
       background-color: var(--color-background);
       outline: 3px solid var(--color-accent);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
-      padding: var(--spacing-md);
+      padding-inline: var(--spacing-md);
    }
 
    .card-tag {

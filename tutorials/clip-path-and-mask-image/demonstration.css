@@ -1,0 +1,91 @@
+.card {
+    padding: 2rem;
+    outline: none;
+}
+
+
+.cards img {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0;
+}
+
+
+.clip-path-one {
+    /*clip-path: circle(42%);*/
+    /*clip-path: circle(35%);*/
+}
+
+.clip-path-two {
+    /*clip-path: ellipse(20% 35% at center);*/
+    /*clip-path: ellipse(40% 25% at center);*/
+}
+
+.clip-path-three {
+    /*clip-path: inset(8% round 1.5rem);*/
+}
+
+.clip-path-four {
+    /*clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);*/
+}
+
+.clip-path-five {
+    /*clip-path: polygon(25% 0,
+            75% 0,
+            100% 100%,
+            0 100%);
+
+    transition: clip-path 500ms ease-in-out;
+
+    &:hover {
+        clip-path: polygon(20% 20%,
+                100% 35%,
+                80% 75%,
+                50% 100%);
+    }*/
+}
+
+.clip-path-six {
+    /*-webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);*/
+}
+
+
+.clip-path-seven {
+    /* Standard mask-image with a radial gradient vignette */
+    -webkit-mask-image: radial-gradient(circle, black 60%, transparent 100%);
+    mask-image: radial-gradient(circle,
+            black 30%,
+            /* Keeps the center completely clear */
+            rgba(0, 0, 0, 0.5) 50%,
+            /* Adds a heavy mid-tone fade */
+            transparent 50%
+            /* Forces complete darkness/cutoff much earlier */
+        );
+    ;
+
+    /* Ensure proper sizing and no repeating */
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+}
+
+.clip-path-eight {
+    mask-image: radial-gradient(circle,
+            black 45%,
+            transparent 70%);
+    mask-size: 100px 100px;
+    /* mask-repeat: repeat; */
+}
+
+.clip-path-nine {
+    mask-image: radial-gradient(circle,
+            black 45%,
+            transparent 70%);
+    mask-size: 100px 100px;
+    /*mask-repeat: no-repeat;*/
+    /*mask-position: center;*/
+    /*mask-size: contain;*/
+}
