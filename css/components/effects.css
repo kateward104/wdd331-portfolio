@@ -33,7 +33,7 @@
 
 .glass-bg-image {
     -webkit-filter: saturate(180%) blur(3px);
-    filter: saturate(80%) blur(3px);
+    filter: saturate(220%) blur(3px);
 }
 
 
