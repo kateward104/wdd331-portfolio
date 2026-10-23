@@ -29,6 +29,7 @@ html {
     --seed-link-hover: var(--seed-accent-hover);
     --seed-border: #f0e2e6;
     --seed-border-strong: #e1cbcb;
+    --seed-shadow: black;
 
     /* ---- Accent ramp ---- */
     --accent-200: color-mix(in oklch, var(--seed-accent) 30%, white);
@@ -50,6 +51,9 @@ html {
     --color-link-hover: light-dark(var(--seed-link-hover), var(--accent-400));
     --color-border: light-dark(var(--seed-border), oklch(0.32 0.02 260));
     --color-border-strong: light-dark(var(--seed-border-strong), oklch(29.801% 0.04786 256.246));
+    --color-shadow-sm: light-dark(rgba(31, 31, 31, 0.585), rgba(118, 117, 117, 0.585));
+    --color-shadow-md: light-dark(rgba(31, 31, 31, 0.585), rgba(118, 117, 117, 0.585));
+    --color-shadow-lg: light-dark(rgba(31, 31, 31, 0.585), rgba(118, 117, 117, 0.585));
 
     /* Tint the native checkboxes, radios, and range sliders */
     accent-color: var(--color-accent);

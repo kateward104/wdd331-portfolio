@@ -6,6 +6,11 @@ body {
     padding: var(--spacing-lg);
 }
 
+header {
+    text-align: center;
+    align-content: center;
+}
+
 main {
     flex: 1;
     max-width: 64rem;
@@ -38,6 +43,9 @@ li {
     font-size: clamp(var(--font-size-sm), 2vw, var(--font-size-md));
 }
 
+section {
+    margin-block: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+}
 
 a:not(nav a) {
     color: var(--color-link);
@@ -47,6 +55,10 @@ a:not(nav a) {
     }
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
 
 
 ul {

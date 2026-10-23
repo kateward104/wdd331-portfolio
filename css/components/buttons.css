@@ -1,0 +1,13 @@
+button {
+    padding: var(--spacing-sm);
+    margin: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    background-color: light-dark(var(--seed-text-headers), var(--seed-text));
+    outline: none;
+    box-shadow: var(--shadow-sm);
+
+    a {
+        color: var(--seed-bg);
+        text-decoration: none;
+    }
+}
