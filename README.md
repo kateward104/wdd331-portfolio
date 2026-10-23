@@ -16,6 +16,7 @@ every push to main.
 - [Home](index.html)
 - [Custom Properties and Nesting](unit-1/custom-properties/index.html)
 - [Layered Components](unit-2/layered-components/index.html)
+- [Visual Effect](unit-3/visual-effects/index.html)
 
 
 ## Tutorials
@@ -23,6 +24,7 @@ every push to main.
 - [Marker, Backdrop, and Selectors Tutorial](tutorials/marker-backdrop-selectors/index.html)
 - [Lighting CSS](tutorials/lightning-css/index.html)
 - [Print and Forced Color](tutorials/print-and-forced-colors/index.html)
+- [Clip Path and Mask Image](tutorials/clip-path-and-mask-image/index.html)
 
 
 ## Build Tool
