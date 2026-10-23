@@ -28,4 +28,10 @@
 
     /* Focus */
     --outline-width: 2px;
+
+    /* Shadow */
+    --shadow-sm: 1px 2px 2px var(--color-shadow-sm);
+    --shadow-md: 2px 4px 7px var(--color-shadow-md);
+    --shadow-lg: 2px 6px 12px var(--color-shadow-lg);
+
 }
