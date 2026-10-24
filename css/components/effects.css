@@ -1,8 +1,35 @@
-.card-image {
-    width: 100%;
-    height: auto;
+.hero {
+    position: relative;
+    display: grid;
 }
 
+.hero-image,
+.hero::before,
+.hero-content {
+    grid-area: 1 / 1;
+}
+
+.hero-image {
+    z-index: 0;
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.hero::before {
+    z-index: 1;
+    background: linear-gradient(135deg, #2941b86b, #732da56f);
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+
+.hero-content {
+    z-index: 2;
+    align-content: center;
+    text-shadow: 1px 1px 14px var(--color-bg);
+}
 
 .card-image-shadow {
     box-shadow: var(--shadow-sm), var(--shadow-md), var(--shadow-lg);
@@ -29,11 +56,28 @@
     }
 }
 
+.glass-section {
+    display: grid;
+}
 
+.glass-background,
+.glass-panel {
+    grid-area: 1 / 1;
+}
+
+.glass-panel {
+    padding: var(--spacing-lg);
+    align-content: center;
+    -webkit-backdrop-filter: saturate(180%) blur(4px);
+    backdrop-filter: saturate(220%) blur(4px);
+    text-shadow: 1px 1px 14px var(--color-bg);
+}
 
 .glass-bg-image {
-    -webkit-filter: saturate(180%) blur(3px);
-    filter: saturate(220%) blur(3px);
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 
@@ -41,4 +85,25 @@
     filter: drop-shadow(2px 2px 2px currentColor);
     width: 5%;
     height: auto;
+}
+
+.clip-path-img {
+    clip-path: polygon(25% 9%,
+            75% 0,
+            70% 90%,
+            0 100%);
+
+    transition: clip-path 500ms ease-in-out;
+
+    &:hover {
+        clip-path: polygon(20% 20%,
+                80% 35%,
+                80% 75%,
+                30% 100%);
+    }
+}
+
+.mask-image-img {
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
 }
