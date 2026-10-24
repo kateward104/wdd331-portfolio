@@ -19,7 +19,7 @@
 
 .hero::before {
     z-index: 1;
-    background: linear-gradient(135deg, #2941b86b, #732da56f);
+    background: linear-gradient(135deg, #2941b84f, #732da54f);
     content: '';
     position: absolute;
     inset: 0;
