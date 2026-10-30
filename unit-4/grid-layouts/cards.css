@@ -1,0 +1,44 @@
+img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+}
+
+main {
+    padding-block: var(--spacing-lg);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: clamp(var(--spacing-md), 2vw, var(--spacing-lg));
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        box-shadow:
+            var(--shadow-md), var(--shadow-lg);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-md);
+
+        div {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+
+            a {
+                margin-top: auto;
+            }
+        }
+    }
+}
+
+
+
+/*  Cards must be at least 240px wide and grow to fill available space equally.
+The grid must never overflow its container at any viewport width. Use the min() safety pattern inside minmax().
+Each .card must display its image placeholder and body content in a column arrangement. The first div in each card (the placeholder) should have a fixed height. All visual styling uses your existing token system.
+The read-more link at the bottom of each card must be pushed to the bottom of the card regardless of how much text the card above it contains. Solve this with CSS only. 
+*/

@@ -1,0 +1,44 @@
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(var(--spacing-md), 2vw, var(--spacing-lg));
+    grid-template-areas:
+        "header"
+        "main"
+        "sidebar"
+        "footer";
+
+    @media (min-width: 48rem) {
+        grid-template-columns: 200px 1fr;
+        grid-template-areas:
+            "header  header"
+            "sidebar main"
+            "footer  footer";
+    }
+}
+
+.layout aside {
+    grid-area: sidebar;
+}
+
+.layout main {
+    grid-area: main;
+}
+
+h2 {
+    padding-block: clamp(var(--spacing-sm), 2vw, var(--spacing-md));
+}
+
+.byline {
+    font-style: italic;
+    padding-block: clamp(var(--spacing-xs), 2vw, var(--spacing-sm));
+}
+
+blockquote {
+    font-weight: bold;
+    padding: clamp(var(--spacing-md), 2vw, var(--spacing-lg));
+}
+
+footer {
+    padding-block: var(--spacing-lg);
+}
