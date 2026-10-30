@@ -25,6 +25,7 @@ every push to main.
 - [Lighting CSS](tutorials/lightning-css/index.html)
 - [Print and Forced Color](tutorials/print-and-forced-colors/index.html)
 - [Clip Path and Mask Image](tutorials/clip-path-and-mask-image/index.html)
+- [Aspect Ratio and Object Fit](tutorials/aspect-ratio-and-object-fit/index.html)
 
 
 ## Build Tool
