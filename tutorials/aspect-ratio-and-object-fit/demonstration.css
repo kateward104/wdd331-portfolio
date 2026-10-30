@@ -1,0 +1,46 @@
+.card {
+    padding: 2rem;
+    outline: none;
+}
+
+.cards img:not(.ideal-image-thumbnail) {
+    display: block;
+    width: 100%;
+    /* Aspect ratio options: 16 / 9,   3 / 4,   1 / 1 (square),  3 / 1 (panoramic),  2 / 3 (panoramic) */
+    /* height: 200px; */
+    aspect-ratio: 16/9;
+    padding: 0;
+}
+
+
+.object-fit-fill {
+    object-fit: fill;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+.object-fit-contain {
+    object-fit: contain;
+}
+
+.object-position {
+    object-fit: cover;
+    /* Possible positions: top left, top center, top right, center left, center center, center right, bottom left, bottom center, bottom right */
+    object-position: top center;
+}
+
+.object-position-custom {
+    object-position: 50% 60%;
+    object-fit: cover;
+    /* slightly above center */
+}
+
+.ideal-image-thumbnail {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+}

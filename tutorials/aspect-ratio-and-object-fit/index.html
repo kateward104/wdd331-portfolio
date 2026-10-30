@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspect Ratio and Object Fit</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="js/theme-preference.js"></script>
+    <link rel="stylesheet" href="demonstration.css">
+</head>
+
+
+<body>
+    <nav>
+        <p><b>WDD 331R Advanced CSS</b></p>
+        <ul>
+            <li>
+                <a href="../../../index.html">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="https://byui-cse.github.io/wdd331r-course/index.html">
+                    Additional Resources
+                </a>
+            </li>
+            <li>
+                <details class="theme-menu">
+                    <summary class="theme-control">
+                        <span class="visually-hidden">Color scheme</span>
+                    </summary>
+                    <div class="theme-extra" role="group" aria-label="Choose color scheme">
+                        <label class="theme-control theme-pick" data-theme-pick="light">
+                            <input name="theme-preference" type="radio" value="light">
+                            <span aria-hidden="true">&#9788;&#65039;</span>
+                            <span class="visually-hidden">Light</span>
+                        </label>
+                        <label class="theme-control theme-pick" data-theme-pick="system">
+                            <input name="theme-preference" type="radio" value="system" checked>
+                            <span aria-hidden="true">&#9881;&#65039;</span>
+                            <span class="visually-hidden">System default</span>
+                        </label>
+                        <label class="theme-control theme-pick" data-theme-pick="dark">
+                            <input name="theme-preference" type="radio" value="dark">
+                            <span aria-hidden="true">&#127766;</span>
+                            <span class="visually-hidden">Dark</span>
+                        </label>
+                    </div>
+                </details>
+            </li>
+        </ul>
+    </nav>
+    <header class="page-header">
+        <h1>Aspect Ratio and Object Fit</h1>
+        <p>Learn about aspect ratios and positioning images in CSS.</p>
+    </header>
+
+
+    <main>
+        <section class="card-group">
+            <!--<div class="old-image-demo">
+                <img class="old-image" src="images/example.jpg" alt="Example of object-fit: fill">
+                <article class="text-description">
+                    <img class="object-fit-cover" src="images/example.jpg" alt="Example of object-fit: cover">
+                    <div class="card-tag">object-fit</div>
+                    <h3>object-fit: cover</h3>
+                    <p>Cover scales the content up until it covers the entire container, cropping the overflow. The
+                        ratio is
+                        preserved. This is the most common value for card thumbnails and hero images.
+                    </p>
+                </article>
+            </div>-->
+            <div class="cards">
+                <article class="card">
+                    <img class="object-fit-fill" src="images/example.jpg" alt="Example of object-fit: fill">
+                    <div class="card-tag">object-fit</div>
+                    <h3>object-fit: fill</h3>
+                    <p>Fill (default): stretches the content to fill the container exactly, distorting the ratio
+                        if the container is a different proportion.
+                    </p>
+                </article>
+                <article class="card">
+                    <img class="object-fit-cover" src="images/example.jpg" alt="Example of object-fit: cover">
+                    <div class="card-tag">object-fit</div>
+                    <h3>object-fit: cover</h3>
+                    <p>Cover scales the content up until it covers the entire container, cropping the overflow. The
+                        ratio is
+                        preserved. This is the most common value for card thumbnails and hero images.
+                    </p>
+                </article>
+                <article class="card">
+                    <img class="object-fit-contain" src="images/example.jpg" alt="Example of object-fit: contain">
+                    <div class="card-tag">object-fit</div>
+                    <h3>object-fit: contain</h3>
+                    <p>Contains scales the content down until it fits entirely inside the container without cropping.
+                        The ratio
+                        is preserved but there may be empty space (letterboxing).
+                    </p>
+                </article>
+                <article class="card">
+                    <img class="object-position" src="images/example.jpg" alt="Example of object-position">
+                    <div class="card-tag">object-position</div>
+                    <h3>Using object-position</h3>
+                    <p>This controls where the content is anchored within its container when it does not fill it
+                        exactly, or
+                        when cover crops it.
+                    </p>
+                    <ul>
+                        <li>top left</li>
+                        <li>top center</li>
+                        <li>top right</li>
+                        <li>center left</li>
+                        <li>center center</li>
+                        <li>center right</li>
+                        <li>bottom left</li>
+                        <li>bottom center</li>
+                        <li>bottom right</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <img class="object-position-custom" src="images/example.jpg"
+                        alt="Example of object-position-custom">
+                    <div class="card-tag">object-position</div>
+                    <h3>object-position custom</h3>
+                    <p>You can enter in an x and y percentage to more precisely target the area you want to focus on in
+                        your image. <br><br>object-position: X% Y%;<br><br>This image is set to object-position: 50%
+                        60%; to get more of the flowers in frame.
+                    </p>
+                </article>
+                <article class="card">
+                    <img class="ideal-image-thumbnail" src="images/example.jpg" alt="Example of clip path">
+                    <div class="card-tag">combination of aspect-ratio and object-position</div>
+                    <h3>Ideal Image Thumbnail</h3>
+                    <p>width: 100%;<br>
+                        aspect-ratio: 16 / 9; <br>
+                        object-fit: cover; <br>
+                        object-position: center; <br>
+                        display: block;
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <h2>Summary</h2>
+        <section class="overall">
+            <div class="topic">
+                <ul>
+                    <li><strong>fill:</strong> stretches the content to fill the container
+                        exactly<br><strong>cover:</strong> scales the content up until it covers the entire container,
+                        cropping the overflow. The
+                        ratio is preserved.<br><strong>contain:</strong> scales the content down until it fits entirely
+                        inside the container without cropping.
+                        The ratio
+                        is preserved but there may be empty space (letterboxing). </li>
+                    <li><strong>Aspect-ratio controls the cropping and format your image/video is seen in. ex: square,
+                            rectangle, vertical, horizontal, etc.</strong> Use it, instead of the old padding-top:
+                        56.25% rule, to get a better, and more accurate 16 / 9 that is more responsive to mobile.</li>
+                    <li><strong>Object-positioning allows you to move the image around in the frame once it is
+                            cropped/hidden with aspect-ratio.</strong> You can do this with named areas like top center,
+                        center right, or bottom left. You can also use X% and Y% for even more precise focus on an area
+                        of an image.</li>
+                </ul>
+                <p>Understanding how these all work together will help you to better control your images and create more
+                    professional websites.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <p>Click <a href="https://byui-cse.github.io/wdd331r-course/unit/4/learn/choose/media-in-layout.html">here</a>
+            for
+            more information about aspect-ratio and object-positioning.</p>
+    </footer>
+</body>
+
+</html>
