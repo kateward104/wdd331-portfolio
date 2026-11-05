@@ -1,0 +1,5 @@
+/*  Create unit-4/advanced/sticky-demo.html with a page long enough to scroll. Add a sticky element of your choosing: a section header that stays visible as its section scrolls past, a sidebar that locks in place, or a table of contents that follows the reader. Make sure you include the required offset property or sticky will silently do nothing.
+
+Once it is working, deliberately introduce the overflow bug from the reading: add overflow: hidden to a wrapper ancestor, confirm that sticky breaks, then fix it. Leave a comment in your CSS at the location of the fix explaining what caused the problem and what you changed to resolve it. That comment is part of the submission.
+
+Think carefully about your fix. Removing overflow: hidden entirely may break whatever visual effect it was providing. Is there a way to achieve the same visual result without applying overflow to the ancestor that sits between your sticky element and its scroll container?  */

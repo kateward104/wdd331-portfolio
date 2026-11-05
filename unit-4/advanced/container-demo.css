@@ -1,0 +1,5 @@
+/*  Create unit-4/advanced/container-demo.html with a page that places the same component in two different layout contexts: one narrow (like a sidebar) and one wide (like a main content area). The component can be a card, a media object, a feature block, or any repeating UI pattern from your site.
+
+In container-demo.css, establish a containment context on the wrapper of each placement using container-type, then write at least one @container rule that changes the component layout at a breakpoint you choose. The component should stack vertically in the narrow context and shift to a horizontal arrangement in the wide one, or some other meaningful layout change that makes sense for the component you picked.
+
+The goal is a component that adapts to where it lives without any media query or JavaScript involved. Add a second @container rule at a different breakpoint if you want to practice a third state. Name your container with container-name if you want to query a specific ancestor rather than the nearest one.  */
