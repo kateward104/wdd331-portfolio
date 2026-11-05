@@ -36,9 +36,7 @@ main {
 }
 
 
+/* Add a subgrid section */
+/*  You will need to define three row tracks on the parent grid (one for the title zone, one for the body, one for the footer), make each card span all three of those tracks, and set grid-template-rows: subgrid on each card. Pay attention to align-items on the parent and row-gap: the reading explains why both matter here. When you are done, cards with very different title lengths should have body text and footer buttons that line up perfectly across the row.
 
-/*  Cards must be at least 240px wide and grow to fill available space equally.
-The grid must never overflow its container at any viewport width. Use the min() safety pattern inside minmax().
-Each .card must display its image placeholder and body content in a column arrangement. The first div in each card (the placeholder) should have a fixed height. All visual styling uses your existing token system.
-The read-more link at the bottom of each card must be pushed to the bottom of the card regardless of how much text the card above it contains. Solve this with CSS only. 
-*/
+Verify by temporarily giving two or three of your cards unusually long or short titles. The alignment should hold regardless of content length. Add an @supports guard so the layout remains readable in browsers that do not yet support subgrid.  */

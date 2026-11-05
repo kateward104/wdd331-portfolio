@@ -1,0 +1,83 @@
+.carousel {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    gap: var(--spacing-lg);
+
+    /* This allows the browser to scroll horizontally when the cards extend beyond the available width. */
+    overflow-x: auto;
+
+    /* Sets scroll snapping direction and behavior */
+    /* Change this to "proximity" instead of "mandatory" to allow for more free scrolling */
+    scroll-snap-type: x mandatory;
+
+    /* This prevents the end-of-carousel swipe from triggering the browser's back/forward navigation gesture. */
+    overscroll-behavior-x: contain;
+
+    scroll-snap-stop: always;
+
+    @media (prefers-reduced-motion: reduce) {
+
+        /* Guard decorative animations, not the snap itself */
+        .slide-animation {
+            animation: none;
+            transition: none;
+        }
+    }
+}
+
+.carousel-card {
+    /* This controls the placement of the cards in the carousel. Change this to "start" or "end" to see how it affects the snapping behavior */
+    scroll-snap-align: start;
+
+    flex: 0 0 clamp(300px, 80vw, 800px);
+
+    /* Extra styling for the cards */
+    padding: var(--spacing-sm);
+    min-height: 250px;
+    margin: var(--spacing-lg);
+    outline: 3px solid var(--color-accent);
+    border-radius: var(--radius-lg);
+    padding-inline: var(--spacing-md);
+}
+
+
+/* Mandatory issue demo */
+/* See the "scroll-snap-carousel" page demo on the BYU-Idaho CSS website for a better visual example of this. */
+/*
+.carousel {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+}
+
+.carousel-card {
+    min-height: 800px;
+    scroll-snap-align: start;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+.waterfall {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.card {
+    padding: var(--spacing-lg);
+    margin-block: var(--spacing-md);
+}
