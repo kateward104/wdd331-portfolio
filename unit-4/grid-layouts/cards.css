@@ -12,31 +12,25 @@ main {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
-    gap: clamp(var(--spacing-md), 2vw, var(--spacing-lg));
+    grid-template-columns: repeat(4, auto);
+    align-content: start;
+    align-items: stretch;
+    grid-template-rows: auto auto 1fr auto;
+    gap: var(--spacing-lg);
+}
 
-    .card {
-        display: flex;
-        flex-direction: column;
-        box-shadow:
-            var(--shadow-md), var(--shadow-lg);
-        border-radius: var(--radius-lg);
-        padding: var(--spacing-md);
-
-        div {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-
-            a {
-                margin-top: auto;
-            }
-        }
-    }
+.card {
+    box-shadow: var(--shadow-md),
+        var(--shadow-lg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
 }
 
 
-/* Add a subgrid section */
-/*  You will need to define three row tracks on the parent grid (one for the title zone, one for the body, one for the footer), make each card span all three of those tracks, and set grid-template-rows: subgrid on each card. Pay attention to align-items on the parent and row-gap: the reading explains why both matter here. When you are done, cards with very different title lengths should have body text and footer buttons that line up perfectly across the row.
-
-Verify by temporarily giving two or three of your cards unusually long or short titles. The alignment should hold regardless of content length. Add an @supports guard so the layout remains readable in browsers that do not yet support subgrid.  */
+@supports (grid-template-rows: subgrid) {
+    .card {
+        display: grid;
+        grid-row: span 4;
+        grid-template-rows: subgrid;
+    }
+}

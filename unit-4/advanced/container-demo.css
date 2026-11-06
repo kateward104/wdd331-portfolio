@@ -3,3 +3,39 @@
 In container-demo.css, establish a containment context on the wrapper of each placement using container-type, then write at least one @container rule that changes the component layout at a breakpoint you choose. The component should stack vertically in the narrow context and shift to a horizontal arrangement in the wide one, or some other meaningful layout change that makes sense for the component you picked.
 
 The goal is a component that adapts to where it lives without any media query or JavaScript involved. Add a second @container rule at a different breakpoint if you want to practice a third state. Name your container with container-name if you want to query a specific ancestor rather than the nearest one.  */
+
+
+.container {
+    container-type: inline-size;
+}
+
+article {
+    margin-block: var(--spacing-lg);
+    align-items: center;
+}
+
+
+img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(var(--spacing-sm), 2vw, var(--spacing-lg));
+}
+
+
+@container (min-width: 700px) {
+    .card {
+        flex-direction: row;
+    }
+
+    img {
+        width: 70%;
+        height: auto;
+    }
+}
