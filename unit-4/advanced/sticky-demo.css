@@ -4,6 +4,11 @@ Once it is working, deliberately introduce the overflow bug from the reading: ad
 
 Think carefully about your fix. Removing overflow: hidden entirely may break whatever visual effect it was providing. Is there a way to achieve the same visual result without applying overflow to the ancestor that sits between your sticky element and its scroll container?  */
 
+.card-content {
+    overflow: visible;
+}
+
+
 .sticky {
     background-color: var(--color-text-headers);
     padding-block: var(--spacing-sm);
