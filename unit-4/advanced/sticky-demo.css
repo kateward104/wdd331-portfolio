@@ -4,6 +4,8 @@ Once it is working, deliberately introduce the overflow bug from the reading: ad
 
 Think carefully about your fix. Removing overflow: hidden entirely may break whatever visual effect it was providing. Is there a way to achieve the same visual result without applying overflow to the ancestor that sits between your sticky element and its scroll container?  */
 
+
+/* Visible allows the scroll to continue vs. hidden. I don't need to clip anything, so visible is the right option at this point. */
 .card-content {
     overflow: visible;
 }
