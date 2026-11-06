@@ -15,6 +15,7 @@ main {
     flex: 1;
     max-width: 64rem;
     width: 100%;
+    margin-block: var(--spacing-lg);
     margin-inline: auto;
     padding-inline: var(--spacing-md, 1rem);
 

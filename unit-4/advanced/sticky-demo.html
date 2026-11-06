@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Demo</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="sticky-demo.css">
+</head>
+
+<body class="articles-page">
+    <header>
+        <nav>
+            <p><b>WDD 331R Advanced CSS</b></p>
+            <ul>
+                <li>
+                    <a href="/../index.html">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="https://byui-cse.github.io/wdd331r-course/index.html">
+                        Additional Resources
+                    </a>
+                </li>
+                <li>
+                    <details class="theme-menu">
+                        <summary class="theme-control">
+                            <span class="visually-hidden">Color scheme</span>
+                        </summary>
+                        <div class="theme-extra" role="group" aria-label="Choose color scheme">
+                            <label class="theme-control theme-pick" data-theme-pick="light">
+                                <input name="theme-preference" type="radio" value="light">
+                                <span aria-hidden="true">&#9788;&#65039;</span>
+                                <span class="visually-hidden">Light</span>
+                            </label>
+                            <label class="theme-control theme-pick" data-theme-pick="system">
+                                <input name="theme-preference" type="radio" value="system" checked>
+                                <span aria-hidden="true">&#9881;&#65039;</span>
+                                <span class="visually-hidden">System default</span>
+                            </label>
+                            <label class="theme-control theme-pick" data-theme-pick="dark">
+                                <input name="theme-preference" type="radio" value="dark">
+                                <span aria-hidden="true">&#127766;</span>
+                                <span class="visually-hidden">Dark</span>
+                            </label>
+                        </div>
+                    </details>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="title">
+            <h1>Sticky-Demo</h1>
+            <p>Using sticky to keep the navigation in place.</p>
+        </div>
+        <div class="container">
+            <article class="card">
+                <img src="images/barn-owl.jpg" alt="Barn Owl">
+                <div class="card-content">
+                    <div class="sticky">
+                        <h2>Barn Owl</h2>
+                    </div>
+                    <p>
+                        These owls live in barns and have brown and white feathers to blend in with trees and common
+                        areas. In 2024, ornithologists split the widespread Barn Owl, found on every continent except
+                        Antarctica, into three species: American Barn Owl, Eastern Barn Owl, and Western Barn Owl.
+                        American Barn Owl is restricted to the Americas, Eastern Barn Owl occurs from South Asia to
+                        Australia, and Western Barn Owl is found in Europe, Africa, and western Asia.<br><br>
+                        American Barn Owls swallow their prey whole—skin, bones, and all. About twice a day, they cough
+                        up pellets instead of passing all that material through their digestive tracts. The pellets make
+                        a great record of what the owls have eaten, and scientists study them to learn more about the
+                        owls and the ecosystems they live in.<br><br>
+                        Barn owls have excellent low-light vision, and can easily find prey at night by sight. But their
+                        ability to locate prey by sound alone is the best of any animal that has ever been tested. They
+                        can catch mice in complete darkness in the lab, or hidden by vegetation or snow out in the real
+                        world.<br><br>
+                        The oldest known American Barn Owl lived in Ohio and was at least 15 years, 5 months old when it
+                        died. Many people’s first sighting of an American Barn Owl is while driving through open country
+                        at night—a flash of pale wings in the headlights is usually this species. These owls also often
+                        live up to their name, inhabiting barns and other old, abandoned buildings, so keep an eye out
+                        for them there. American Barn Owls don’t hoot the way most other owls do; you can listen for
+                        their harsh screeches at night.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="images/burrowing-owl.jpg" alt="Burrowing Owl">
+                <div class="card-content">
+                    <div class="sticky">
+                        <h2>Burrowing Owl</h2>
+                    </div>
+                    <p>
+                        These owls live in burrows and their brown feathers help them to camouflage against the ground
+                        and the grass. Unlike most owls in which the female is larger than the male, the sexes of the
+                        Burrowing Owl are the same size.<br><br>
+                        Burrowing Owls often stow extra food to ensure an adequate supply during incubation and
+                        brooding. When food is plentiful, the birds' underground larders can reach prodigious sizes. One
+                        cache observed in Saskatchewan in 1997 contained more than 200 rodents.<br><br>
+                        In the absence of suitable homes created by ground squirrels, prairie dogs, desert tortoises, or
+                        other burrowing animals, Burrowing Owls have been known to nest in piles of PVC pipe and other
+                        lairs unintentionally provided by humans. Conservationists make use of the owls' adaptability by
+                        supplying artificial burrows made of buckets, pipes, tubing, and other human-made
+                        materials.<br><br>
+                        Burrowing Owls have a higher tolerance for carbon dioxide than other birds—an adaptation found
+                        in other burrowing animals, which spend long periods underground, where the gas can accumulate
+                        to higher levels than found above ground.<br><br>
+                        Efforts to protect Burrowing Owl populations can turn into complex ecological juggling acts. On
+                        a naval base near San Diego, California, land managers had to balance the needs of declining
+                        Burrowing Owls with a colony of endangered Least Terns, whose chicks the owls sometimes preyed
+                        upon.<br><br>
+                        Before laying eggs, Burrowing Owls carpet the entrances to their homes with animal dung, which
+                        attracts dung beetles and other insects that the owls then catch and eat. They may also collect
+                        bottle caps, metal foil, cigarette butts, paper scraps, and other bits of trash at the entrance,
+                        possibly signifying that the burrow is occupied.<br><br>
+                        The oldest known Burrowing Owl was at least 9 years, 11 months old when it was sighted in
+                        California in 2014. Look for Burrowing Owls on wide expanses of short vegetation, especially
+                        around prairie dog towns and ground squirrel colonies. You may also find them using culverts and
+                        ditches. They are very well camouflaged and amazingly small compared to the wide-open areas
+                        where they live, so a spotting scope will be useful for viewing them. You’ll need to patiently
+                        scan a likely habitat—pay special attention to dirt mounds around burrow entrances, where owls
+                        often stand when they’re not hunting, sometimes with just their head and eyes showing. Your
+                        chances are best in early morning and late evening, when the owls tend to be more active.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="images/great-gray-owl.jpg" alt="Great Gray Owl">
+                <div class="card-content">
+                    <div class="sticky">
+                        <h2>Great Gray Owl</h2>
+                    </div>
+                    <p>
+                        Great gray owls are some of the biggest owls. Although the Great Gray Owl is one of the tallest
+                        owls in the U.S., it’s just a ball of feathers. Both the Great Horned Owl and Snowy Owl weigh
+                        more than a Great Gray Owl and they have larger feet and talons.<br><br>
+                        Great Gray Owls aren’t just North American owls. They also live in Scandinavia, Russia, Siberia,
+                        and Mongolia.<br><br>
+                        Great Gray Owls are powerful birds. Despite weighing only 2.5 pounds, they can break through
+                        hard packed snow to grab a small mammal. One bird reportedly broke through snow that was hard
+                        enough to support a 176-pound human.<br><br>
+                        Great Gray Owls are big owls, which means that they need to eat regularly. In the winter, they
+                        eat up to 7 vole-sized small mammals every day.<br><br>
+                        Both the common and scientific names are apt for this large gray owl. The Latin name for Great
+                        Gray Owl is Strix nebulosa. Strix means to utter shrill sounds and nebulosa means misty or
+                        cloudy, referring to its gray color.<br><br>
+                        Imagine what it would be like if you could hear even the slightest noise and knew exactly where
+                        the noise was coming from. Well, that is exactly what Great Gray Owls can do. Like the Barn Owl
+                        and Long-eared Owl they have asymmetrical ear openings that help them find prey by sound alone.
+                        The left ear opening is higher on the head than the right ear opening which enables precise
+                        directional hearing and lets them nab invisible prey.<br><br>
+                        The oldest recorded Great Gray Owl was at least 18 years, 9 months old and lived in Alberta,
+                        where it was banded in 1996 and found in 2013, after being hit by a car. The Great Gray Owl is
+                        an elusive bird that is not easy to find, despite its size. Your best chance of seeing one is
+                        during an irruptive year when it comes south in search of food. Join your local birding group
+                        email listserv and watch rare bird alters to know when one has been sighted near you. You can
+                        also use the eBird species maps tool to find areas where other birders reported them in the past
+                        to try your luck at finding one. In these areas slowly walk the perimeter of a meadow or other
+                        opening looking for dark figures in trees. Pay particular attention to dead trees and don’t
+                        forget to look at all levels in the trees as they can sometimes perch fairly low. To catch them
+                        hunting, make sure to get out in the right habitat before dawn or dusk. Because Great Gray Owls
+                        are highly sought-after by birders and photographers who want to see the birds, and are
+                        sensitive to disturbance, don’t use call playbacks to find them. Using mice to bait or lure in
+                        owls (of any species) should be avoided all together.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="images/horned-owl.jpg" alt="Horned Owl">
+                <div class="card-content">
+                    <div class="sticky">
+                        <h2>Great Horned Owl</h2>
+                    </div>
+                    <p>
+                        With its long, earlike tufts, intimidating yellow-eyed stare, and deep hooting voice, the Great
+                        Horned Owl is the quintessential owl of storybooks. This powerful predator can take down birds
+                        and mammals even larger than itself, but it also dines on daintier fare such as tiny scorpions,
+                        mice, and frogs. It’s one of the most common owls in North America, equally at home in deserts,
+                        wetlands, forests, grasslands, backyards, cities, and almost any other semi-open habitat between
+                        the Arctic and the tropics.<br><br>
+                        Great Horned Owls are fierce predators that can take large prey, including raptors such as
+                        Ospreys,
+                        Peregrine Falcons, Prairie Falcons, and other owls. They also eat much smaller items such as
+                        rodents, frogs, and scorpions.<br><br>
+                        When clenched, a Great Horned Owl’s strong talons require a force of 28 pounds to open. The owls
+                        use this deadly grip to sever the spine of large prey.<br><br>
+                        If you hear an agitated group of cawing American Crows, they may be mobbing a Great Horned Owl.
+                        Crows may gather from near and far and harass the owl for hours. The crows have good reason,
+                        because the Great Horned Owl is their most dangerous predator.<br><br>
+                        Even though the female Great Horned Owl is larger than her mate, the male has a larger voice box
+                        and a deeper voice. Pairs often call together, with audible differences in pitch.<br><br>
+                        Great Horned Owls are covered in extremely soft feathers that insulate them against the cold
+                        winter weather and help them fly very quietly in pursuit of prey. Their short, wide wings allow
+                        them to maneuver among the trees of the forest.<br><br>
+                        Great Horned Owls have large eyes, pupils that open widely in the dark, and retinas containing
+                        many rod cells for excellent night vision. Their eyes don’t move in their sockets, but they can
+                        swivel their heads more than 180 degrees to look in any direction. They also have sensitive
+                        hearing, thanks in part to facial disc feathers that direct sound waves to their ears.
+                        The oldest Great Horned Owl on record was at least 28 years old when it was found in Ohio in
+                        2005.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </main>
+</body>
+
+</html>

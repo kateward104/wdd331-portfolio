@@ -3,3 +3,42 @@
 Once it is working, deliberately introduce the overflow bug from the reading: add overflow: hidden to a wrapper ancestor, confirm that sticky breaks, then fix it. Leave a comment in your CSS at the location of the fix explaining what caused the problem and what you changed to resolve it. That comment is part of the submission.
 
 Think carefully about your fix. Removing overflow: hidden entirely may break whatever visual effect it was providing. Is there a way to achieve the same visual result without applying overflow to the ancestor that sits between your sticky element and its scroll container?  */
+
+.sticky {
+    background-color: var(--color-text-headers);
+    padding-block: var(--spacing-sm);
+    position: sticky;
+    top: 0;
+
+    h2 {
+        padding: var(--spacing-sm);
+        color: var(--color-bg);
+    }
+}
+
+p {
+    padding-block: var(--spacing-md);
+}
+
+
+.container {
+    container-type: inline-size;
+}
+
+article {
+    margin-block: calc(var(--spacing-lg) * 5);
+    align-items: center;
+}
+
+
+img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    margin-block: var(--spacing-md);
+}
+
+.title {
+    text-align: center;
+}
