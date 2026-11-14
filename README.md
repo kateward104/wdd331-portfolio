@@ -28,6 +28,11 @@ every push to main.
 - [Print and Forced Color](tutorials/print-and-forced-colors/index.html)
 - [Clip Path and Mask Image](tutorials/clip-path-and-mask-image/index.html)
 - [Aspect Ratio and Object Fit](tutorials/aspect-ratio-and-object-fit/index.html)
+- [Modular Scale Tokens](tutorials/modular-scale-tokens/index.html)
+
+
+## Type System
+This site uses the Minor Third scale, with a 1.2 ratio to multiply larger fonts to the base. 
 
 
 ## Build Tool
