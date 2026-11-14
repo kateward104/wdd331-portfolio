@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modular Scale Tokens and Typographic Rhythm</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="js/theme-preference.js"></script>
+    <link rel="stylesheet" href="demonstration.css">
+    <script src="scale.js" defer></script>
+</head>
+
+
+<body>
+    <nav>
+        <p><b>WDD 331R Advanced CSS</b></p>
+        <ul>
+            <li>
+                <a href="../../../index.html">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="https://byui-cse.github.io/wdd331r-course/index.html">
+                    Additional Resources
+                </a>
+            </li>
+            <li>
+                <details class="theme-menu">
+                    <summary class="theme-control">
+                        <span class="visually-hidden">Color scheme</span>
+                    </summary>
+                    <div class="theme-extra" role="group" aria-label="Choose color scheme">
+                        <label class="theme-control theme-pick" data-theme-pick="light">
+                            <input name="theme-preference" type="radio" value="light">
+                            <span aria-hidden="true">&#9788;&#65039;</span>
+                            <span class="visually-hidden">Light</span>
+                        </label>
+                        <label class="theme-control theme-pick" data-theme-pick="system">
+                            <input name="theme-preference" type="radio" value="system" checked>
+                            <span aria-hidden="true">&#9881;&#65039;</span>
+                            <span class="visually-hidden">System default</span>
+                        </label>
+                        <label class="theme-control theme-pick" data-theme-pick="dark">
+                            <input name="theme-preference" type="radio" value="dark">
+                            <span aria-hidden="true">&#127766;</span>
+                            <span class="visually-hidden">Dark</span>
+                        </label>
+                    </div>
+                </details>
+            </li>
+        </ul>
+    </nav>
+    <header class="page-header">
+        <h1>Modular Scale Tokens and Typographic Rhythm</h1>
+        <p>Learn about how modular scale tokens can be used to create a consistent typographic rhythm.</p>
+    </header>
+
+
+    <main>
+        <section class="ratio-demo">
+
+            <!-- RATIO CONTROLS -->
+            <div class="ratio-control">
+                <label for="ratio-slider">
+                    Ratio: <output id="ratio-value">1.250</output>
+                </label>
+
+                <input type="range" id="ratio-slider" min="1.125" max="1.618" step="0.001" value="1.25" />
+
+                <div class="ratio-stops">
+                    <button type="button" data-ratio="1.125">Major Second</button>
+                    <button type="button" data-ratio="1.2">Minor Third</button>
+                    <button type="button" data-ratio="1.25">Major Third</button>
+                    <button type="button" data-ratio="1.333">Perfect Fourth</button>
+                    <button type="button" data-ratio="1.414">Augmented Fourth</button>
+                    <button type="button" data-ratio="1.5">Perfect Fifth</button>
+                    <button type="button" data-ratio="1.618">Golden Ratio</button>
+                </div>
+            </div>
+
+            <!-- TYPOGRAPHIC SCALE -->
+            <div class="type-preview">
+                <h1>Display heading</h1>
+                <h2>Section heading</h2>
+                <h3>Subsection heading</h3>
+                <p class="lead">Lead paragraph</p>
+                <p>Body text at the base size</p>
+                <p class="caption">Small caption using a negative exponent</p>
+            </div>
+
+            <!-- ROUNDING DEMONSTRATION -->
+            <div class="round-demo">
+                <h3>Rounding with round()</h3>
+
+                <label>
+                    <input type="checkbox" id="round-toggle" />
+                    Enable rounding
+                </label>
+
+                <p class="round-size">
+                    This text demonstrates CSS rounding.
+                </p>
+
+                <p class="round-value">
+                    Example of Rounding (not live time):<br><br>
+                    Pre-Rounding-Code: round-size: calc(var(--base) * pow(var(--ratio), 3));<br>
+                    Calculated size: 31.25px<br><br>
+                    Post-Rounding-Code: round(nearest, var(--round-size), 4px)<br>
+                    Rounded Result: 32px
+                </p>
+                <h3><br>When to Use Rounding?</h3>
+                <p class="round-value">CSS calculations can produce fractional values, such as 31.25px. Most of the
+                    time, this fits the
+                    scale that we have chosen, which is for the better. However, sometimes we want values to follow a
+                    consistent increment, such as whole pixels or a 4px spacing system (often used for precise spacing
+                    or grids). That's when round() becomes useful. Just be careful because rounding can slightly change
+                    the relationship between values in a modular scale.</p>
+            </div>
+
+        </section>
+        <section class="card-group">
+            <div class="cards">
+                <article class="card">
+                    <h3>ratio and base</h3>
+                    <p>The key to creating a fluid type scale is creating a base size, and multiplying it by a ratio to
+                        create an effective scale.<br><br>Ex: var(--base) * var(--ratio);</p>
+                </article>
+                <article class="card">
+                    <h3>pow()</h3>
+                    <p>pow() raises a base to an exponent. This takes two arguments: a base and an exponent. pow(base,
+                        exponent). Use calc with pow in order to create an exponent for the base.<br><br>Ex:
+                        calc(var(--base) *
+                        pow(var(--ratio), 1));</p>
+                </article>
+                <article class="card">
+                    <h3>round()</h3>
+                    <p>round() rounds a value. This takes two arguments: a value and a rounding increment. round(value,
+                        rounding-increment).<br><br>Ex: round(nearest, calc(var(--base) * pow(var(--ratio), 3)), 4px)
+                    </p>
+                </article>
+            </div>
+        </section>
+        <section class="card-group">
+            <div class="cards">
+                <article class="card">
+                    <div class="card-tag">simpler approach</div>
+                    <h3>Approach 1: One fluid base</h3>
+                    <p>Only the base size uses clamp(). Every other size is calculated from it.</p>
+                    <p>:root {
+                        <br>--ratio: 1.25;
+                        <br><br>/* Only the base is fluid */
+                        <br>--base: clamp(1rem, 0.9rem + 1vw, 1.25rem);
+                        <br><br>/* Everything else inherits that fluidity */
+                        <br>--size-md: var(--base);
+                        <br>--size-lg: calc(var(--base) * pow(var(--ratio), 1));
+                        <br>--size-xl: calc(var(--base) * pow(var(--ratio), 2));
+                        <br>--size-2xl: calc(var(--base) * pow(var(--ratio), 3));
+                        <br>--size-3xl: calc(var(--base) * pow(var(--ratio), 4));
+                        <br>}
+                    </p>
+                    <ul>
+                        <li>--base grows and shrinks with the viewport.</li>
+                        <li>Every other size multiplies that changing base by the ratio.</li>
+                        <li>All sizes grow proportionally, maintaining their mathematical relationship.</li>
+                    </ul>
+                    <p><strong>The tradeoff:</strong> Your largest headings might grow more than you want on wider
+                        screens because
+                        they're
+                        growing proportionally with everything else.</p>
+                </article>
+                <article class="card">
+                    <div class="card-tag">more control</div>
+                    <h3>Approach 2: Individual fluid sizes</h3>
+                    <p>Instead of making the base fluid, each size gets its own clamp().</p>
+                    <p>:root {
+                        <br>--ratio: 1.25;
+                        <br><br>/* Each size has its own fluid range */
+                        <br><br>--size-md: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+                        <br>--size-lg: clamp(1.25rem, 1.1rem + 0.8vw, 1.875rem);
+                        <br>--size-xl: clamp(1.56rem, 1.4rem + 1.5vw, 2.5rem);
+                        <br>--size-2xl: clamp(1.95rem, 1.8rem + 2.5vw, 3.5rem);
+                        <br>--size-3xl: clamp(2.44rem, 2rem + 4vw, 5rem);
+                        <br>}
+                    </p>
+                    <ul>
+                        <li>Every size has its own minimum, preferred growth rate, and maximum.</li>
+                        <li>Body text can grow slowly while headings grow more dramatically.</li>
+                        <li>You can prevent large headings from becoming excessively large.</li>
+                    </ul>
+                    <p><strong>The tradeoff:</strong> You have more control, but you must write and maintain a separate
+                        clamp() for every
+                        size. The original ratio relationship is no longer guaranteed at every viewport width.</p>
+                </article>
+        </section>
+        <p><strong>The takeaway</strong><br>
+            A fluid base makes your entire scale responsive while preserving the proportional relationship between
+            sizes.<br>
+            Individual clamps give you more control over how each size responds to the viewport, but require more CSS
+            and can change the relationship between sizes.
+        </p>
+    </main>
+
+    <footer class="page-footer">
+        <p>Click <a
+                href="https://byui-cse.github.io/wdd331r-course/unit/5/learn/choose/modular-scale-tokens.html">here</a>
+            for
+            more information about modular scale tokens and typographic rhythm.</p>
+    </footer>
+</body>
+
+</html>

@@ -24,24 +24,38 @@ main {
     }
 }
 
+h1 {
+    color: var(--color-text-headers);
+    font-family: var(--font-family-heading);
+    font-weight: 900;
+    font-size: var(--font-size-display);
+}
 
-h1,
 h2,
-h3,
+h3 {
+    color: var(--color-text-headers);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    font-size: var(--font-size-heading-lg);
+}
+
+
 h4,
 h5,
 h6 {
     color: var(--color-text-headers);
     font-family: var(--font-family-heading);
+    font-weight: 500;
+    font-size: var(--font-size-heading-sm);
     /*padding-block: clamp(var(--spacing-xs), 2vw, var(--spacing-sm));*/
 }
 
 p,
 li {
     color: var(--color-text);
-    font-family: var(--font-body);
+    font-family: var(--font-family-body);
     /*padding-block: clamp(var(--spacing-xs), 2vw, var(--spacing-sm));*/
-    font-size: clamp(var(--font-size-sm), 2vw, var(--font-size-md));
+    font-size: var(--font-size-body);
 }
 
 section {
@@ -64,4 +78,8 @@ img {
 
 ul {
     list-style-type: none;
+}
+
+.caption {
+    font-size: var(--font-size-caption);
 }
