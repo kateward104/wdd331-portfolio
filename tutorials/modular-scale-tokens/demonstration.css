@@ -7,17 +7,15 @@
     --base: 1rem;
 
     /* Change sm to calc(var(--base) * pow(var(--ratio), -1)). This will create a value smaller than the base.*/
-    --size-sm: var(--base);
+    --size-sm: calc(var(--base) * pow(var(--ratio), -1));
 
     --size-md: var(--base);
 
     /* Change size-lg to calc(var(--base) * pow(var(--ratio), 1)). This will create a value larger than the base.*/
-    --size-lg: var(--base);
-    /*
+    --size-lg: calc(var(--base) * pow(var(--ratio), 1));
     --size-xl: calc(var(--base) * pow(var(--ratio), 2));
     --size-2xl: calc(var(--base) * pow(var(--ratio), 3));
     --size-3xl: calc(var(--base) * pow(var(--ratio), 4));
-    */
 
     /* Separate rounding example */
     --round-size: calc(var(--base) * pow(var(--ratio), 3));

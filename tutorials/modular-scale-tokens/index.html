@@ -176,6 +176,7 @@
                     <p>Instead of making the base fluid, each size gets its own clamp().</p>
                     <p>:root {
                         <br>--ratio: 1.25;
+                        <br>--base: 1rem;
                         <br><br>/* Each size has its own fluid range */
                         <br><br>--size-md: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
                         <br>--size-lg: clamp(1.25rem, 1.1rem + 0.8vw, 1.875rem);
@@ -197,7 +198,7 @@
         <p><strong>The takeaway</strong><br>
             A fluid base makes your entire scale responsive while preserving the proportional relationship between
             sizes.<br>
-            Individual clamps give you more control over how each size responds to the viewport, but require more CSS
+            Individual clamps give you more control over how each size responds to the viewport, but requires more CSS
             and can change the relationship between sizes.
         </p>
     </main>
