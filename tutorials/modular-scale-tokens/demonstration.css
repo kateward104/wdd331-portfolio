@@ -1,0 +1,138 @@
+/* =========================
+   RATIO TOKENS
+========================= */
+
+.ratio-demo {
+    --ratio: 1.25;
+    --base: 1rem;
+
+    /* Change sm to calc(var(--base) * pow(var(--ratio), -1)). This will create a value smaller than the base.*/
+    --size-sm: var(--base);
+
+    --size-md: var(--base);
+
+    /* Change size-lg to calc(var(--base) * pow(var(--ratio), 1)). This will create a value larger than the base.*/
+    --size-lg: var(--base);
+    /*
+    --size-xl: calc(var(--base) * pow(var(--ratio), 2));
+    --size-2xl: calc(var(--base) * pow(var(--ratio), 3));
+    --size-3xl: calc(var(--base) * pow(var(--ratio), 4));
+    */
+
+    /* Separate rounding example */
+    --round-size: calc(var(--base) * pow(var(--ratio), 3));
+    --round-rounded: round(nearest, var(--round-size), 4px);
+
+    padding: 2rem;
+    background: #f4f4f4;
+    color: #222;
+    border-radius: 12px;
+}
+
+
+/* =========================
+   RATIO CONTROLS
+========================= */
+
+.ratio-control {
+    margin-bottom: 3rem;
+}
+
+.ratio-control label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#ratio-slider {
+    width: 100%;
+    cursor: pointer;
+    accent-color: #0077cc;
+}
+
+.ratio-stops {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.ratio-stops button {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+}
+
+.ratio-stops button:hover,
+.ratio-stops button[aria-pressed="true"] {
+    background: #dceeff;
+    border-color: #0077cc;
+}
+
+
+/* =========================
+   TYPOGRAPHIC SCALE
+========================= */
+
+.type-preview>* {
+    margin-bottom: 1rem;
+}
+
+.type-preview h1 {
+    font-size: var(--size-3xl);
+}
+
+.type-preview h2 {
+    font-size: var(--size-2xl);
+}
+
+.type-preview h3 {
+    font-size: var(--size-xl);
+}
+
+.type-preview .lead {
+    font-size: var(--size-lg);
+}
+
+.type-preview p {
+    font-size: var(--size-md);
+}
+
+.type-preview .caption {
+    font-size: var(--size-sm);
+}
+
+
+/* =========================
+   ROUNDING DEMONSTRATION
+========================= */
+
+.round-demo {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ccc;
+}
+
+.round-demo h3 {
+    font-size: 1.25rem;
+}
+
+.round-demo label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+
+.round-size {
+    font-size: var(--round-size);
+    margin-bottom: 0.5rem;
+}
+
+/* Apply rounded value when enabled */
+.ratio-demo[data-round="true"] .round-size {
+    font-size: var(--round-rounded);
+}
