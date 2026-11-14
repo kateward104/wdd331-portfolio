@@ -3,13 +3,6 @@
     --font-family-heading: "Besley", "Times New Roman", serif;
     --font-family-body: "Segoe UI", sans-serif;
 
-    /* Old Font Sizes */
-    /*
-    --font-size-sm: 1.2rem;
-    --font-size-md: 1.4rem;
-    --font-size-lg: 1.6rem;
-    */
-
     /* New Font Sizes */
     --font-ratio: 1.2;
     /* Minor Third */
@@ -22,8 +15,8 @@
     --font-size-xl: calc(var(--font-base) * pow(var(--font-ratio), 2));
     --font-size-2xl: calc(var(--font-base) * pow(var(--font-ratio), 3));
 
-    --font-size-body: var(--font-size-md);
     --font-size-caption: var(--font-size-xs);
+    --font-size-body: var(--font-size-md);
     --font-size-heading-sm: var(--font-size-lg);
     --font-size-heading-lg: var(--font-size-xl);
     --font-size-display: var(--font-size-2xl);
