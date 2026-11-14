@@ -32,6 +32,7 @@ every push to main.
 
 
 ## Type System
+
 This site uses the Minor Third scale, with a 1.2 ratio to multiply larger fonts to the base. 
 
 
