@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Control Styling</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="js/theme-preference.js"></script>
+    <link rel="stylesheet" href="demonstration.css">
+    <script src="scale.js" defer></script>
+</head>
+
+
+<body>
+    <nav>
+        <p><b>WDD 331R Advanced CSS</b></p>
+        <ul>
+            <li>
+                <a href="../../../index.html">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="https://byui-cse.github.io/wdd331r-course/index.html">
+                    Additional Resources
+                </a>
+            </li>
+            <li>
+                <details class="theme-menu">
+                    <summary class="theme-control">
+                        <span class="visually-hidden">Color scheme</span>
+                    </summary>
+                    <div class="theme-extra" role="group" aria-label="Choose color scheme">
+                        <label class="theme-control theme-pick" data-theme-pick="light">
+                            <input name="theme-preference" type="radio" value="light">
+                            <span aria-hidden="true">&#9788;&#65039;</span>
+                            <span class="visually-hidden">Light</span>
+                        </label>
+                        <label class="theme-control theme-pick" data-theme-pick="system">
+                            <input name="theme-preference" type="radio" value="system" checked>
+                            <span aria-hidden="true">&#9881;&#65039;</span>
+                            <span class="visually-hidden">System default</span>
+                        </label>
+                        <label class="theme-control theme-pick" data-theme-pick="dark">
+                            <input name="theme-preference" type="radio" value="dark">
+                            <span aria-hidden="true">&#127766;</span>
+                            <span class="visually-hidden">Dark</span>
+                        </label>
+                    </div>
+                </details>
+            </li>
+        </ul>
+    </nav>
+    <header class="page-header">
+        <h1>Form Control Styling</h1>
+        <p>Learn about how to style form controls in CSS beyond the basics.</p>
+    </header>
+
+
+    <main>
+        <p>For a live demo of how these all work, please go to my <a href="../../contact/contact.html">Contact Page</a>
+        </p>
+        <section class="card-group">
+            <div class="cards">
+                <article class="card">
+                    <h3>native styles vs. appearance:none</h3>
+                    <p><strong>Native styles</strong> - create the default styling for form
+                        controls<br><br><strong>appearance: none</strong> - removes
+                        the
+                        default styling, allowing you to create a custom look.<br><br>You have to
+                        create ALL the styles for this, including the focus, active, and hover states.<br><br>Best
+                        to keep native styles unless doing specific custom styling.<br><br><strong>Caution:</strong>
+                        Windows High
+                        Contrast mode and the forced-colors media feature rely on native control rendering to apply
+                        system colors correctly. Controls with appearance: none that use custom colors will often lose
+                        those colors entirely in forced-colors environments, leaving users with invisible or broken
+                        controls.</p>
+                </article>
+                <article class="card">
+                    <h3>&lt;select&gt;</h3>
+                    <p>This can be difficult to style. You can style the box itself.<br>
+                        <br><br><strong>Can style:</strong>
+                    </p>
+                    <ul>
+                        <li>background</li>
+                        <li>padding</li>
+                        <li>border</li>
+                        <li>font</li>
+                    </ul>
+                    <p><br><br><strong>Cannot style:</strong></p>
+                    <ul>
+                        <li>arrow</li>
+                    </ul>
+                    <p><br>People get around this by using appearance: none and replacing the arrow with their own svg.
+                    </p>
+                </article>
+                <article class="card">
+                    <h3>caret-color</h3>
+                    <p>The caret is the blinking vertical line that appears when you're typing in a text
+                        field.<br><br>For example, when you click inside an input and start typing, you see a blinking
+                        cursor showing where your next character will appear.
+                        That blinking line is called the text caret.<br><br><strong>caret-color</strong> lets you change
+                        the color of the
+                        caret. It is often used to match a brand color. Ex: caret-color:
+                        var(--accent-color);<br><br><br>This does not change: </p>
+                    <ul>
+                        <li>The color of the text</li>
+                        <li>The background of the input</li>
+                        <li>The border of the input</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>:focus-visible</h3>
+                    <p>Different controls such as input fields, selects, and range style the focus state
+                        differently.<br><br><strong>:focus-visible</strong> helps to unify them all. Reset the styles,
+                        and use
+                        :focus-visible to create a consistent focus indicator for all form controls.<br><br>Ex:
+                        <br>input,
+                        <br>select,
+                        <br>textarea {
+                        <br>outline: none;
+                        <br>}
+                        <br><br>input:focus-visible,
+                        <br>select:focus-visible,
+                        <br>textarea:focus-visible {
+                        <br>>outline: 2px solid var(--color-accent);
+                        <br>outline-offset: 2px;
+                        <br>}
+                        <br><br>Using :focus-visible instead of :focus ensures the ring only appears for keyboard
+                        navigation, not mouse clicks.
+                    </p>
+                </article>
+                <article class="card">
+                    <h3>Range Track and Thumb Styling</h3>
+                    <p><strong>Use accent-color for simple customization. Use custom track and thumb styling when
+                            you need more control, but expect additional CSS and browser-specific adjustments.</strong>
+                        <br><br>accent-color: Changes the color of the slider's thumb and filled track in supporting
+                        browsers.
+                        <br><br>Custom styling: Use pseudo-elements when you want more control over the track's height,
+                        thumb's
+                        size and shape, or individual colors.
+                        <br><br>Track: The line the thumb moves along.
+                        <br><br>Thumb: The handle you drag to select a value.
+                        <br><br>Browser differences: Chrome and Safari use ::-webkit- selectors. Firefox uses ::-moz-
+                        selectors.
+                        <br><br>appearance: none: Removes the browser's default styling so you can create your own.
+                        <br><br>Thumb positioning: Chrome and Safari need a negative top margin to vertically center the
+                        thumb over the track. Firefox handles this automatically.
+                    </p>
+                    <p>
+                        <br><strong>Important Limitations:</strong>
+                    </p>
+                    <ul>
+                        <li>There is no consistent CSS-only way to independently color the filled and unfilled portions
+                            of the track across all browsers.</li>
+                        <li>Firefox supports ::-moz-range-progress to style the filled portion.
+                        </li>
+                        <li>Chrome and Safari do not have an equivalent.
+                        </li>
+                        <li>For consistent filled-track styling across browsers, JavaScript can update a CSS custom
+                            property based on the slider's current value.</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>field-sizing</h3>
+                    <p><strong>field-sizing: content</strong> allows the textbox to grow based on how much is typed,
+                        without using a
+                        scroll bar.<br><br>Use min-height and max-height to control the size restraints of the text box.
+                        This ensures it doesn't shrink too much, and also puts a cap on the text when needed.</p>
+                </article>
+            </div>
+        </section>
+        <p><strong>Takeaway Properties</strong><br>
+        <ul>
+            <li>accent-color - Establish your brand color for controls</li>
+            <li>field-sizing - Make the textarea grow with content</li>
+            <li>caret-color - Customize the typing cursor (usually color of cursor, but not the text itself)</li>
+            <li>appearance: none - Remove the native select arrow</li>
+            <li>background-image - Add your custom SVG arrow</li>
+            <li>:focus-visible - Establish consistent focus indicators</li>
+            <li>::-webkit-slider-thumb / ::-moz-range-thumb - Customize the slider handle</li>
+            <li>::-webkit-slider-runnable-track / ::-moz-range-track - Customize the slider line</li>
+        </ul>
+        </p>
+    </main>
+
+    <footer class="page-footer">
+        <p>Click <a
+                href="https://byui-cse.github.io/wdd331r-course/unit/5/learn/choose/form-control-deep-dive.html">here</a>
+            for
+            more information about form control styling beyond the basics.</p>
+    </footer>
+</body>
+
+</html>
