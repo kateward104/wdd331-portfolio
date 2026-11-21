@@ -1,0 +1,127 @@
+/* Average Settings */
+.question {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+}
+
+textarea {
+    field-sizing: content;
+    min-height: 5lh;
+    max-height: 20lh;
+    width: 50lh;
+}
+
+.question-checkbox {
+    display: flex;
+    align-content: center;
+}
+
+input {
+    height: 2lh;
+    min-width: 5lh;
+    max-width: 20lh;
+}
+
+
+/* Advanced Settings */
+
+/* Controls the Caret Color for text inputs, textareas, and select elements */
+input,
+textarea {
+    caret-color: var(--color-accent);
+}
+
+
+/* Focus-visible ring for all form controls */
+input,
+textarea,
+select {
+    padding: var(--spacing-md);
+    outline: none;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: var(--border-radius);
+}
+
+/* Chrome and Safari range thumb */
+input[type="range"]:focus-visible::-webkit-slider-thumb {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+/* Firefox range thumb */
+input[type="range"]:focus-visible::-moz-range-thumb {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+
+/* Custom Select Arrow */
+select {
+    appearance: none;
+    height: 2lh;
+    width: 20lh;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+
+    background-image: url("../images/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.25rem;
+}
+
+
+/* Changes range */
+input[type="range"] {
+    accent-color: var(--color-accent);
+}
+
+
+
+
+/* Base range input */
+input[type="range"] {
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Chrome and Safari track */
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    background: var(--color-border-strong);
+    border-radius: var(--radius-sm);
+}
+
+/* Firefox track */
+input[type="range"]::-moz-range-track {
+    height: 4px;
+    background: var(--color-border-strong);
+    border-radius: var(--radius-sm);
+}
+
+/* Chrome and Safari thumb */
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    margin-top: -6px;
+}
+
+/* Firefox thumb */
+input[type="range"]::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: none;
+}

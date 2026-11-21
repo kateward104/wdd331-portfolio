@@ -1,34 +1,26 @@
-/* Non-color tokens: spacing, typography, borders, shadows.
-   These values should be referenced by every other layer. */
-/*:root {
-
-    --font-heading: "Times New Roman", serif;
-    --font-body: "Segoe UI", sans-serif;
-
-    --spacing-xs: 0.25rem;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 4rem;
-
-    --font-size-sm: 14px;
-    --font-size-md: 16px;
-    --font-size-lg: 20px;
-    --font-size-xl: 24px;
-
-    --border-radius: 1rem;
-
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
-    */
-
 :root {
     /* Typography */
-    --font-family-heading: "Times New Roman", serif;
+    --font-family-heading: "Besley", "Times New Roman", serif;
     --font-family-body: "Segoe UI", sans-serif;
-    --font-size-sm: 0.8rem;
-    --font-size-md: 1rem;
-    --font-size-lg: 1.2rem;
+
+    /* New Font Sizes */
+    --font-ratio: 1.2;
+    /* Minor Third */
+    --font-base: clamp(1rem, 1rem + 1vw, 1.125rem);
+
+    --font-size-xs: calc(var(--font-base) * pow(var(--font-ratio), -2));
+    --font-size-sm: calc(var(--font-base) * pow(var(--font-ratio), -1));
+    --font-size-md: var(--font-base);
+    --font-size-lg: calc(var(--font-base) * pow(var(--font-ratio), 1));
+    --font-size-xl: calc(var(--font-base) * pow(var(--font-ratio), 2));
+    --font-size-2xl: calc(var(--font-base) * pow(var(--font-ratio), 3));
+
+    --font-size-caption: var(--font-size-xs);
+    --font-size-body: var(--font-size-md);
+    --font-size-heading-sm: var(--font-size-lg);
+    --font-size-heading-lg: var(--font-size-xl);
+    --font-size-display: var(--font-size-2xl);
+
 
     /* Spacing */
     --spacing-xs: 4px;
@@ -52,4 +44,10 @@
 
     /* Focus */
     --outline-width: 2px;
+
+    /* Shadow */
+    --shadow-sm: 1px 2px 2px var(--color-shadow-sm);
+    --shadow-md: 2px 4px 7px var(--color-shadow-md);
+    --shadow-lg: 2px 6px 12px var(--color-shadow-lg);
+
 }

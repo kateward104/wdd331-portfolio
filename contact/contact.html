@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="js/theme-preference.js"></script>
+    <link rel="stylesheet" href="demonstration.css">
+    <script src="scale.js" defer></script>
+</head>
+
+
+<body>
+    <nav>
+        <p><b>WDD 331R Advanced CSS</b></p>
+        <ul>
+            <li>
+                <a href="../../../index.html">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="https://byui-cse.github.io/wdd331r-course/index.html">
+                    Additional Resources
+                </a>
+            </li>
+            <li>
+                <details class="theme-menu">
+                    <summary class="theme-control">
+                        <span class="visually-hidden">Color scheme</span>
+                    </summary>
+                    <div class="theme-extra" role="group" aria-label="Choose color scheme">
+                        <label class="theme-control theme-pick" data-theme-pick="light">
+                            <input name="theme-preference" type="radio" value="light">
+                            <span aria-hidden="true">&#9788;&#65039;</span>
+                            <span class="visually-hidden">Light</span>
+                        </label>
+                        <label class="theme-control theme-pick" data-theme-pick="system">
+                            <input name="theme-preference" type="radio" value="system" checked>
+                            <span aria-hidden="true">&#9881;&#65039;</span>
+                            <span class="visually-hidden">System default</span>
+                        </label>
+                        <label class="theme-control theme-pick" data-theme-pick="dark">
+                            <input name="theme-preference" type="radio" value="dark">
+                            <span aria-hidden="true">&#127766;</span>
+                            <span class="visually-hidden">Dark</span>
+                        </label>
+                    </div>
+                </details>
+            </li>
+        </ul>
+    </nav>
+    <header class="page-header">
+        <h1>Contact</h1>
+    </header>
+
+
+    <main>
+        <form class="form">
+            <section class="question">
+                <label for="name"> Name:</label>
+                <input type="text" id="name" name="name" required>
+            </section>
+            <section class="question">
+                <label for="email"> Email:</label>
+                <input type="email" id="email" name="email" required>
+            </section>
+            <section class="question">
+                <label for="tutorial"> Which tutorial did you find most helpful?</label>
+                <select id="tutorial" name="tutorial">
+                    <option value="aspect-ratio">Aspect Ratio and Object Fit</option>
+                    <option value="clip-path">Clip Path and Mask Image</option>
+                    <option value="lightning">Lightning CSS</option>
+                    <option value="marker-backdrop-selectors">Marker, Backdrop, and Selectors</option>
+                    <option value="modular-scale">Modular Scale Tokens</option>
+                    <option value="print-and-forced-colors">Print and Forced Colors</option>
+                    <option value="scroll-snap">Scroll-Snap Carousel</option>
+                </select>
+            </section>
+            <section class="question">
+                <label for="slider">On a scale of 1-10, how helpful was this tutorial?</label>
+                <input type="range" id="slider" name="slider" min="1" max="10" value="5">
+            </section>
+            <section class="question">
+                <label for="message">Why did you find it helpful, and what was your favorite part of the
+                    tutorial?</label>
+                <textarea id="message" name="message" required></textarea>
+            </section>
+            <section class="question-checkbox">
+                <input type="checkbox" name="updates" value="yes">
+                <label for="checkbox">I'd like to receive updates about new tutorials.</label>
+            </section>
+        </form>
+    </main>
+</body>
+
+</html>
