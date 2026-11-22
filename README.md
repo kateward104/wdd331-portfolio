@@ -19,6 +19,8 @@ every push to main.
 - [Visual Effect](unit-3/visual-effects/index.html)
 - [Editorial Layout](unit-4/grid-layouts/editorial.html)
 - [Card Layout](unit-4/grid-layouts/cards.css)
+- [Resume](resume/index.html)
+- [Contact](contact/contact.html)
 
 
 ## Tutorials
@@ -29,6 +31,7 @@ every push to main.
 - [Clip Path and Mask Image](tutorials/clip-path-and-mask-image/index.html)
 - [Aspect Ratio and Object Fit](tutorials/aspect-ratio-and-object-fit/index.html)
 - [Modular Scale Tokens](tutorials/modular-scale-tokens/index.html)
+- [Form Control Styling](tutorials/form/index.html)
 
 
 ## Type System
