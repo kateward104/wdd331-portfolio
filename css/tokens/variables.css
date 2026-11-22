@@ -38,6 +38,10 @@
     /* Transitions */
     --transition-base: 0.2s ease;
 
+    /* Icons */
+    --icon-size-sm: 24px;
+    --icon-size-md: 32px;
+
     /* Focus */
     --outline-width: 2px;
 
