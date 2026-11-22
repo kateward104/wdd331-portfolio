@@ -1,0 +1,70 @@
+@media print {
+
+    nav {
+        display: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-body);
+        color: #2e2e2e;
+    }
+
+    h1 {
+        font-size: 20pt;
+    }
+
+    h3 {
+        font-size: 16pt;
+    }
+
+    h4 {
+        font-size: 13pt;
+    }
+
+    p,
+    li {
+        font-size: 10pt;
+        line-height: 14pt;
+        orphans: 2;
+        widows: 2;
+        font-family: var(--font-family-heading);
+        color: #2e2e2e;
+    }
+
+    .experience {
+        gap: var(--spacing-lg);
+        break-inside: avoid;
+
+        .left {
+            max-width: 150px;
+        }
+    }
+
+    section {
+        margin-block: var(--spacing-md);
+    }
+
+    .intro {
+        margin-top: 0;
+    }
+
+    .professional-summary {
+        width: 800px;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.9em;
+        color: #555;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+}

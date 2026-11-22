@@ -1,0 +1,21 @@
+.experience {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: calc(var(--spacing-lg) * 3);
+}
+
+main ul {
+    list-style-type: disc;
+
+    li::marker {
+        color: var(--color-accent);
+    }
+}
+
+.contact {
+    margin-top: 0;
+}
+
+.professional-summary {
+    max-width: 800px;
+}
