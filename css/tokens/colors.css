@@ -1,21 +1,5 @@
 :root,
 html {
-    /* Extra color from color palette #BF9850 */
-    /*
-    --color-primary: #B82938;
-    --color-accent: #BF9850;
-    --color-text: #452527;
-    --color-background: #FFFFFF;
-    --color-link: #CE6A5B;
-    --color-link-hover: color-mix(in srgb, var(--color-link) 50%, black 50%);
-
-    --color-button-primary: var(--color-primary);
-    --color-button-secondary: var(--color-accent);
-    --color-button-text: var(--color-background);
-    --color-button-hover: color-mix(in srgb, var(--color-accent) 50%, black 50%);
-    --color-button-disabled: rgb(112, 11, 11);*/
-
-
     /* ---- Seeds ---- */
     --seed-bg: #f4f6f8;
     --seed-surface: #ffffff;
