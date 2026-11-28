@@ -1,20 +1,31 @@
+.card {
+    background-color: var(--color-background);
+    outline: 3px solid var(--color-accent);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    padding-inline: var(--spacing-md);
+    padding: calc(var(--spacing-lg) * 1.5);
+    margin-block: var(--spacing-md);
+}
+
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
+    grid-auto-rows: auto;
+    column-gap: var(--spacing-lg);
+    row-gap: var(--spacing-sm);
 
-    .card {
-        background-color: var(--color-background);
-        outline: 3px solid var(--color-accent);
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow-md);
-        padding: var(--spacing-md);
-    }
 
     .card-tag {
-        font-family: var(--font-body);
+        font-family: var(--font-family-body);
         font-style: italic;
         color: var(--color-primary);
         font-size: clamp(var(--font-size-sm), 2vw, var(--font-size-md));
+    }
+
+    .card-footer {
+        margin-block: var(--spacing-sm);
+        padding-block: var(--spacing-sm);
+        border-top: 1px solid var(--color-primary);
     }
 }

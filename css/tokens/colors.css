@@ -38,6 +38,7 @@ html {
     --color-shadow-sm: light-dark(rgba(31, 31, 31, 0.585), rgba(118, 117, 117, 0.585));
     --color-shadow-md: light-dark(rgba(31, 31, 31, 0.585), rgba(118, 117, 117, 0.585));
     --color-shadow-lg: light-dark(rgba(31, 31, 31, 0.585), rgba(118, 117, 117, 0.585));
+    --color-button-text: var(--seed-surface);
 
     /* Tint the native checkboxes, radios, and range sliders */
     accent-color: var(--color-accent);
