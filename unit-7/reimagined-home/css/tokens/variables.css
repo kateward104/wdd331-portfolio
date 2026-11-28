@@ -1,0 +1,53 @@
+:root {
+    /* Typography */
+    --font-family-heading: Arial, sans-serif;
+    --font-family-body: Arial, sans-serif;
+
+    /* New Font Sizes */
+    --font-ratio: 1.2;
+    /* Minor Third */
+    --font-base: clamp(1rem, 1rem + 1vw, 1.125rem);
+
+    --font-size-xs: calc(var(--font-base) * pow(var(--font-ratio), -2));
+    --font-size-sm: calc(var(--font-base) * pow(var(--font-ratio), -1));
+    --font-size-md: var(--font-base);
+    --font-size-lg: calc(var(--font-base) * pow(var(--font-ratio), 1));
+    --font-size-xl: calc(var(--font-base) * pow(var(--font-ratio), 2));
+    --font-size-2xl: calc(var(--font-base) * pow(var(--font-ratio), 3));
+
+    --font-size-caption: var(--font-size-xs);
+    --font-size-body: var(--font-size-md);
+    --font-size-heading-sm: var(--font-size-lg);
+    --font-size-heading-lg: var(--font-size-xl);
+    --font-size-display: var(--font-size-2xl);
+
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Radii */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --border-radius: 1rem;
+
+    /* Transitions */
+    --transition-base: 0.2s ease;
+
+    /* Icons */
+    --icon-size-sm: 24px;
+    --icon-size-md: 32px;
+
+    /* Focus */
+    --outline-width: 2px;
+
+    /* Shadow */
+    --shadow-sm: 1px 2px 2px var(--color-shadow-sm);
+    --shadow-md: 2px 4px 7px var(--color-shadow-md);
+    --shadow-lg: 2px 6px 12px var(--color-shadow-lg);
+
+}

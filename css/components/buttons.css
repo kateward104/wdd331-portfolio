@@ -5,9 +5,10 @@ button {
     background-color: light-dark(var(--seed-text-headers), var(--seed-text));
     outline: none;
     box-shadow: var(--shadow-sm);
+    color: var(--color-button-text);
 
     a {
-        color: var(--seed-bg);
+        color: var(--color-button-text);
         text-decoration: none;
     }
 }
